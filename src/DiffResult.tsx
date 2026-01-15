@@ -34,7 +34,7 @@ export default function DiffResult({
     : null;
 
   return (
-    <details className="prose my-4">
+    <details className="prose dark:prose-invert my-4">
       <summary className="font-bold">
         {asTitle(path)}
         {comment && <span className="font-medium"> (with comment)</span>}
@@ -75,9 +75,9 @@ export default function DiffResult({
         {diff.map((part) => {
           /* eslint-disable react-x/no-missing-key */
           if (part.added) {
-            return <ins className="bg-green-200">{part.value}</ins>;
+            return <ins>{part.value}</ins>;
           } else if (part.removed) {
-            return <del className="bg-red-200">{part.value}</del>;
+            return <del>{part.value}</del>;
           } else {
             return <span>{part.value}</span>;
           }

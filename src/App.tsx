@@ -23,7 +23,7 @@ function App() {
   );
 
   return (
-    <main className="prose mx-auto px-4 py-8">
+    <main className="prose dark:prose-invert mx-auto px-4 py-8">
       <h1 className="text-center">haya-view-test</h1>
       <pre>
         <code>
@@ -32,23 +32,29 @@ function App() {
           }
         </code>
       </pre>
-      <p>
-        Run the above command in your <code>typst/hayagriva</code> repo, and
-        paste <code>cargo-test.log</code> below.
-      </p>
-      <textarea
-        className="h-24 w-full rounded border border-gray-300 p-2"
-        placeholder={CARGO_LOG_PLACEHOLDER}
-        value={cargoLog}
-        onChange={(e) => {
-          setCargoLog(e.target.value);
-        }}
-      />
+      <label>
+        <p>
+          Run the above command in your <code>typst/hayagriva</code> repo, and
+          paste <code>cargo-test.log</code> below.
+        </p>
+        <textarea
+          className="h-24 w-full rounded border border-gray-300 p-2"
+          placeholder={CARGO_LOG_PLACEHOLDER}
+          value={cargoLog}
+          onChange={(e) => {
+            setCargoLog(e.target.value);
+          }}
+        />
+      </label>
       {results.length === 0 && (
         <p>
-          <span className="text-red-600">
-            <strong>Error:</strong> Failed to extract test results from your{" "}
-            <code className="text-red-700">cargo-test.log</code>.
+          <span className="text-red-600 dark:text-red-400">
+            <strong className="text-red-600 dark:text-red-400">Error:</strong>{" "}
+            Failed to extract test results from your{" "}
+            <code className="text-red-600 dark:text-red-400">
+              cargo-test.log
+            </code>
+            .
           </span>
           <br />
           <strong className="text-blue-500">Hint:</strong> Did you pass{" "}
@@ -70,7 +76,7 @@ function App() {
         <>
           <h2>Test results</h2>
           <p>
-            The comments are copied from{" "}
+            The comments below are copied from{" "}
             <a
               href="https://github.com/typst/hayagriva/issues/327"
               target="_blank"
@@ -97,8 +103,7 @@ function App() {
             className="sticky top-0 -mx-4 -mb-2 px-4 py-4"
             style={{ backgroundColor: "var(--bg-color)" }}
           >
-            <strong>Notation:</strong> <del className="bg-red-200">got</del> vs.{" "}
-            <ins className="bg-green-200">expected</ins>.
+            <strong>Notation:</strong> <del>got</del> vs. <ins>expected</ins>.
           </p>
           <ul className="pl-0">
             {filteredResults.map((result) => (
