@@ -1,5 +1,10 @@
 import { diffWordsWithSpace } from "diff";
 import type { JSX } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkGithub, {
+  type Options as remarkGithubOptions,
+} from "remark-github";
 import { asTitle, type TestResult } from "./cargo.ts";
 
 export default function DiffResult({
@@ -31,7 +36,25 @@ export default function DiffResult({
       <p>
         Test <code>{path}</code> failed.
       </p>
-      {comment && <blockquote>{comment}</blockquote>}
+      {comment && (
+        <blockquote>
+          <ReactMarkdown
+            children={comment}
+            remarkPlugins={[
+              remarkGfm,
+              [
+                remarkGithub,
+                {
+                  repository: "typst/hayagriva",
+                } satisfies remarkGithubOptions,
+              ],
+            ]}
+            components={{
+              a: (props) => <a {...props} target="_blank" />,
+            }}
+          />
+        </blockquote>
+      )}
       {/* .wrap-break-word is necessary for long URL, DOI, etc. */}
       <pre className="wrap-break-word whitespace-pre-wrap">
         {diff.map((part) => {

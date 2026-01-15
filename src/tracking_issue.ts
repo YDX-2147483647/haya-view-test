@@ -1,7 +1,7 @@
 import { extractYaml } from "@std/front-matter";
 import trackingIssueMarkdown from "./fixtures/tracking-issue.md?raw";
 
-/** A map from title to comment. */
+/** A map from titles to markdown comments. */
 export type TestNotes = Map<string, string>;
 
 const {
