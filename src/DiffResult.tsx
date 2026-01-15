@@ -7,6 +7,8 @@ import remarkGithub, {
 } from "remark-github";
 import { asTitle, type TestResult } from "./cargo.ts";
 
+const TEST_SUITE = "target/haya-cache/test-suite/";
+
 export default function DiffResult({
   result: { path, expected, got },
   comment,
@@ -27,6 +29,10 @@ export default function DiffResult({
       .replace(/\n\s*/g, ""),
   );
 
+  const url = path.startsWith(TEST_SUITE)
+    ? `https://github.com/citation-style-language/test-suite/tree/master/${path.slice(TEST_SUITE.length)}`
+    : null;
+
   return (
     <details className="my-4 prose">
       <summary className="font-bold">
@@ -34,7 +40,15 @@ export default function DiffResult({
         {comment && <span className="font-medium"> (with comment)</span>}
       </summary>
       <p>
-        Test <code>{path}</code> failed.
+        Test{" "}
+        {url ? (
+          <a href={url} target="_blank">
+            <code>{path}</code>
+          </a>
+        ) : (
+          <code>{path}</code>
+        )}{" "}
+        failed.
       </p>
       {comment && (
         <blockquote>
