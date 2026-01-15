@@ -42,7 +42,7 @@ function getTestNotes(body: string): TestNotes {
       }
     } else if (current && trimmed.startsWith("- ")) {
       // Comment line
-      current.comment = current.comment + trimmed.substring(2) + "\n";
+      current.comment = `${current.comment + trimmed.substring(2)}\n`;
     }
   }
   if (current) {

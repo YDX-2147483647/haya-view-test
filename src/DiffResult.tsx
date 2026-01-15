@@ -34,7 +34,7 @@ export default function DiffResult({
     : null;
 
   return (
-    <details className="my-4 prose">
+    <details className="prose my-4">
       <summary className="font-bold">
         {asTitle(path)}
         {comment && <span className="font-medium"> (with comment)</span>}
@@ -53,7 +53,6 @@ export default function DiffResult({
       {comment && (
         <blockquote>
           <ReactMarkdown
-            children={comment}
             remarkPlugins={[
               remarkGfm,
               [
@@ -64,9 +63,11 @@ export default function DiffResult({
               ],
             ]}
             components={{
-              a: (props) => <a {...props} target="_blank" />,
+              a: (props) => <a {...props} target="_blank" rel="noopener" />,
             }}
-          />
+          >
+            {comment}
+          </ReactMarkdown>
         </blockquote>
       )}
       {/* .wrap-break-word is necessary for long URL, DOI, etc. */}

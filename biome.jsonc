@@ -19,6 +19,10 @@
       "recommended": true,
       "nursery": {
         "useSortedClasses": "error"
+      },
+      "style": {
+        // Use eslint for that
+        "noNonNullAssertion": "off"
       }
     }
   },

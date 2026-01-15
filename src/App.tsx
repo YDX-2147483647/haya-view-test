@@ -37,7 +37,7 @@ function App() {
         paste <code>cargo-test.log</code> below.
       </p>
       <textarea
-        className="w-full h-24 p-2 border border-gray-300 rounded"
+        className="h-24 w-full rounded border border-gray-300 p-2"
         placeholder={CARGO_LOG_PLACEHOLDER}
         value={cargoLog}
         onChange={(e) => {
@@ -74,6 +74,7 @@ function App() {
             <a
               href="https://github.com/typst/hayagriva/issues/327"
               target="_blank"
+              rel="noopener"
             >
               Tracking Issue: CSL Spec Compliance · Issue #327 · typst/hayagriva
             </a>{" "}
@@ -84,7 +85,7 @@ function App() {
             <input
               type="text"
               placeholder="number_ / quote / …"
-              className="w-full p-2 border border-gray-300 rounded text-sm"
+              className="w-full rounded border border-gray-300 p-2 text-sm"
               value={filter}
               onChange={(e) => {
                 setFilter(e.target.value);
@@ -93,7 +94,7 @@ function App() {
           </label>
           <p
             // Extend the background color to cover long titles in results.
-            className="sticky top-0 py-4 -mb-2 -mx-4 px-4"
+            className="sticky top-0 -mx-4 -mb-2 px-4 py-4"
             style={{ backgroundColor: "var(--bg-color)" }}
           >
             <strong>Notation:</strong> <del className="bg-red-200">got</del> vs.{" "}
