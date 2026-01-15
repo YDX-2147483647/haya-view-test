@@ -9,10 +9,14 @@ const MAIN_BRANCH_INFO = "a137441 2025-12-27T22:30:59Z";
 
 function App() {
   const [cargoLog, setCargoLog] = useState("");
+  const [filter, setFilter] = useState("");
   const results = parseCargoLog(cargoLog || exampleCargoLog);
+  const filteredResults = results.filter((result) =>
+    asTitle(result.path).toLowerCase().includes(filter.toLowerCase()),
+  );
 
   return (
-    <main className="prose mx-auto px-4 pt-8">
+    <main className="prose mx-auto px-4 py-8">
       <h1 className="text-center">haya-view-test</h1>
       <pre>
         <code>
@@ -68,16 +72,28 @@ function App() {
             </a>{" "}
             as of {tracking.updatedAt.toLocaleString()}.
           </p>
+          <label>
+            Filter by test name:
+            <input
+              type="text"
+              placeholder="number_ / quote / …"
+              className="w-full p-2 border border-gray-300 rounded text-sm"
+              value={filter}
+              onChange={(e) => {
+                setFilter(e.target.value);
+              }}
+            />
+          </label>
           <p
             // Extend the background color to cover long titles in results.
-            className="sticky top-0 py-4 -mt-4 -mb-2 -mx-4 px-4"
+            className="sticky top-0 py-4 -mb-2 -mx-4 px-4"
             style={{ backgroundColor: "var(--bg-color)" }}
           >
             <strong>Notation:</strong> <del className="bg-red-200">got</del> vs.{" "}
             <ins className="bg-green-200">expected</ins>.
           </p>
           <ul className="pl-0">
-            {results.map((result) => (
+            {filteredResults.map((result) => (
               <li key={result.path} className="list-none">
                 <DiffResult
                   result={result}
@@ -86,6 +102,10 @@ function App() {
               </li>
             ))}
           </ul>
+          {/* Makes the position of the search bar more stable. */}
+          {filteredResults.length < 10 && (
+            <div aria-hidden style={{ height: "60vh" }} />
+          )}
         </>
       )}
     </main>
