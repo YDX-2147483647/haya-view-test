@@ -1,0 +1,2406 @@
+
+running 54 tests
+test csl::tests::low_year_test ... ok
+test interop::tests::auto_genre_for_phd_masters_techreport ... ok
+test csl::tests::issue_48 ... ok
+test csl::tests::test_transparent_locator_ibid ... ok
+test interop::tests::issue_266 ... ok
+test csl::tests::test_alphanumeric_disambiguation ... ok
+test interop::tests::issue_357 ... ok
+test csl::tests::ibid_handling_with_deutsche_sprache_csl ... ok
+test lang::tests::fold_words ... ok
+test interop::tests::language_conversion ... ok
+test lang::tests::fold_char_class ... ok
+test lang::tests::online ... ok
+test lang::tests::sentence_case ... ok
+test interop::tests::test_pmid_from_biblatex ... ok
+test lang::tests::sentence_case_dictionary ... ok
+test lang::tests::sentence_case_char_segmentation ... ok
+test lang::tests::sentence_case_edge_cases ... ok
+test lang::tests::sentence_case_no_transform ... ok
+test lang::tests::title_case_edge_cases ... ok
+test lang::tests::title_case_char_segmentation ... ok
+test lang::tests::sentence_case_name_detection ... ok
+test lang::tests::title_case_full_stop_handling ... ok
+test lang::tests::title_case_hyphens ... ok
+test lang::tests::title_case_last_word ... ok
+test lang::tests::title_case_name_detection ... ok
+test lang::tests::title_case_verbatim ... ok
+test lang::tests::title_case_punctuation ... ok
+test lang::tests::title_case_word_length ... ok
+test selectors::parser::tests::test_parse ... ok
+test selectors::parser::tests::test_tokenize ... ok
+test selectors::parser::tests::test_parse_errors ... ok
+test csl::tests::test_chapter_field ... ok
+test tests::test_troublesome_page_ranges ... ok
+test types::numeric::test::test_mixed_range ... ok
+test types::page::test::nonnumeric_page ... ok
+test types::persons::tests::person_initials ... ok
+test types::persons::tests::person_middle_initial ... ok
+test types::persons::tests::person_name_retrieval_order ... ok
+test types::persons::tests::person_non_dropping_initials ... ok
+test types::strings::tests::escaped_brace ... ok
+test types::strings::tests::escaped_dollar ... ok
+test types::strings::tests::normal_backslash ... ok
+test types::tests::parse_num ... ok
+test types::tests::test_issue_227 ... ok
+test types::time::tests::test_duration_parse ... ok
+test types::time::tests::test_duration_range_parse ... ok
+test types::page::test::group_by ... ok
+test types::strings::tests::escaped_backslash ... ok
+test types::tests::test_preserve_space_separator ... ok
+test tests::selector_bindings ... ok
+test tests::selectors ... ok
+test csl::tests::test_csl ... ok
+test io::tests::roundtrip ... ok
+test csl::tests::issue_243 ... ok
+
+test result: ok. 54 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 2 tests
+test always_archive ... ignored
+test no_dupe_id ... ok
+
+test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 8 tests
+test test_single_file ... ignored
+test write_passing ... ignored
+test case_folding ... ok
+test no_author ... ok
+test purposes ... ok
+test access_date ... ok
+test test_local_files ... ok
+Already up to date.
+test test_parse_tests ... FAILED
+
+failures:
+
+---- test_parse_tests stdout ----
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_AllCapsLeakage.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><span style="font-variant:small-caps;">Doe</span> John, « His Anonymous Life », <i>in</i> Jane Roe, (éd.). <i>His Anonymous Life</i>, 1 juin 1965.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><span style="font-variant:small-caps;">Doe</span> John, « His Anonymous Life », <i>in </i>Jane Roe, (éd..). <i>His Anonymous Life</i>, 1 juin 1965.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_ApostropheOnParticle.txt failed
+Expected:
+John d’Jones
+
+Got:
+John d' Jones
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_ByBy.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Review of <i>My Title</i>, by Beaver Burtle. n.d.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><i>Review of My Title</i>, by Beaver Burtle. n.d.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_ChicagoAuthorDateLooping.txt failed
+Expected:
+(Anon.; Anon.; Manstein 1982)
+
+Got:
+(Manstein 1982; Anon.; Anon.)
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_CollapseFailure.txt failed
+Expected:
+(Doe et al. 1965a, 1965b, 1970)
+
+Got:
+(Doe et al. 1965a; 1965b; 1970)
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_ContainerTitleShort.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Anon J/Anon J/Anonymous Journal</div>
+  <div class="csl-entry">Journal-1/Journal-1/Anonymous Journal One</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Anonymous Journal/Anonymous Journal</div><div class="csl-entry">Journal-1/Anonymous Journal One/Anonymous Journal One</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DelimitersOnLocator.txt failed
+Expected:
+[1, 32; 2, 32; 3, 32]
+
+Got:
+[1, 32–3, 32]
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_disambigHang.txt failed
+Expected:
+(de Boer et al. 2000a, 2000b)
+
+Got:
+(Boer et al. 2000a, 2000b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DisambiguationAddNames.txt failed
+Expected:
+(Roe et al., 1995a, 1995b)
+
+Got:
+(Roe et al., 1995a; 1995b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DuplicateSpaces.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline"> B. D’Arcus, <i>Boundaries of Dissent: Protest and State Power in the Media Age</i>, New York: Routledge, 2006.</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">[1]</div><div class="csl-right-inline"> B. D'Arcus, <i>Boundaries of Dissent: Protest and State Power in the Media Age</i>,  New York: Routledge, 2006.</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DuplicateSpaces2.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Smith, John, “Some Title.” <i>Container Title</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Smith, John, “Some Title.” <i> Container Title</i>.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DuplicateSpaces3.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">1. Family Name N. The Title. In: <i>Container Title</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">1. Family Name N. The Title. In: <i> Container Title.</i></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_DuplicateTerminalPunctuationInBibliography.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">D’Arcus, Bruce. 2006. <i>Boundaries of Dissent: Protest and State Power in the Media Age</i>. New York: Routledge http://www.test01.com.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">D'Arcus, Bruce. 2006. <i>Boundaries of Dissent: Protest and State Power in the Media Age</i>. New York: Routledge http://www.test01.com.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_FrenchApostrophe.txt failed
+Expected:
+« Life’s “Little” Surprises »
+
+Got:
+« Life's 'Little' Surprises »
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_IeeePunctuation.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline"> P.G. Zimbardo, “Does Psychology make a significant difference in our lives?,” <i>American Psychologist</i>, vol. 59, Jan. 2004, pp. 339–351.</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">[1]</div><div class="csl-right-inline"> P.G. Zimbardo, “Does Psychology make a significant difference in our lives?,” <i>American Psychologist</i>,  vol. 59, Jan 2004, pp. 339–351.</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_LabelsOutOfPlace.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Jones, Colin. <i>Bourgeois Revolution Revivified: 1789 and Social Change</i>. Edited by Colin Lucas. Oxford: Clarendon Press, 1991.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Jones, Colin. <i>Bourgeois Revolution Revivified: 1789 and Social Change</i>.  Edited by Colin Lucas. Oxford: Clarendon Press, 1991.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_LegislationCrash.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><i>Arrêté du 23 mars 1992 relatif au programme des études conduisant au diplôme d’État d’infirmier</i>, 1992. </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><i>Arrêté du 23 mars 1992 relatif au programme des études conduisant au diplôme d'État d'infirmier, </i>1992. </div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_MovePunctuationInsideQuotesForLocator.txt failed
+Expected:
+Jennifer J. Davis, “Men of Taste: Gender and Authority in the French Culinary Trades, 1730-1830” (Ph.D. diss., Pennsylvania State University, History, 2004), s.v. “gargoyle.”
+
+Got:
+Jennifer J. Davis, “Men of Taste: Gender and Authority in the French Culinary Trades, 1730-1830;”  (Ph.D. diss., Pennsylvania State University, History, 2004); , s.v. "gargoyle".
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_NoTitle.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">ecs. (n.d.). .</div>
+  <div class="csl-entry">Family01, G. (n.d.). XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">ecs. (n.d.).</div><div class="csl-entry">Family01, G. (n.d.). XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_parenthesis.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"> (2006): 1–7.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">  (2006): 1–7.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_parseName.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">van Happel, Eduard 2008</div>
+  <div class="csl-entry">Hoppel, Gustav von 2008</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">"van Happel", Eduard 2008</div><div class="csl-entry">Hoppel, Gustav von 2008</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_SingleQuote.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline">“production d ’ eau glacée à condensation à eau avec récupération de chaleur . Modélisation simplifiée dans l ’ optique d ’ un calcul des consommations d ’ énergie d ’ une insta.”</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">[1]</div><div class="csl-right-inline">“production d ' eau glacée à condensation à eau avec récupération de chaleur . Modélisation simplifiée dans l ’ optique d ’ un calcul des consommations d ’ énergie d ’ une insta.”</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_SortedIeeeItalicsFail.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline"> J. Doe, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June. 1965.</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">[2]</div><div class="csl-right-inline"> G. Everhardt, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June. 1965.</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">[3]</div><div class="csl-right-inline"> J. Roe, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June. 1965.</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">[1]</div><div class="csl-right-inline"> J. Doe, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June 1965.</div></div><div class="csl-entry"><div class="csl-left-margin">[2]</div><div class="csl-right-inline"> G. Everhardt, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June 1965.</div></div><div class="csl-entry"><div class="csl-left-margin">[3]</div><div class="csl-right-inline"> J. Roe, “His Anonymous Article,” <i>Journal of Obscurity</i>, vol. 100, p. 15, June 1965.</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_SortSecondaryKey.txt failed
+Expected:
+(Roe, 1995, 1996)
+
+Got:
+(Roe, 1995; 1996)
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_ThesisUniversityAppearsTwice.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Davis, Jennifer J. “Men of Taste: Gender and Authority in the French Culinary Trades, 1730-1830.” Ph.D. diss., Pennsylvania State University, History, 2004.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Davis, Jennifer J. “Men of Taste: Gender and Authority in the French Culinary Trades, 1730-1830”. Ph.D. diss., Pennsylvania State University, History, 2004.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_UndefinedBeforeVal.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Aalto, A. Translated by Boy Beamish.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Aalto, A.. Translated by Boy Beamish.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_UndefinedInName.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">I Test J R.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">, I Test J R.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/bugreports_YearSuffixInHarvard1.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Africa News, 2006a. Burkina Faso: Journalist Case Puts Spotlight On Justice System. <i>Africa News</i>.</div>
+  <div class="csl-entry">Africa News, 2010. Niger: Who Really Ousted Tandja, And Why? <i>Africa News</i>.</div>
+  <div class="csl-entry">Africa News, 2007. Uganda: Police Protect Besigye Rally. <i>Africa News</i>.</div>
+  <div class="csl-entry">Africa News, 2006b. Uganda: UK, US Deploy Observers. <i>Africa News</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Africa News, 2006a. Burkina Faso: Journalist Case Puts Spotlight On Justice System. <i>Africa News</i>.</div><div class="csl-entry">Africa News, 2010. Niger: Who Really Ousted Tandja, And Why?. <i>Africa News</i>.</div><div class="csl-entry">Africa News, 2007. Uganda: Police Protect Besigye Rally. <i>Africa News</i>.</div><div class="csl-entry">Africa News, 2006b. Uganda: UK, US Deploy Observers. <i>Africa News</i>.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/collapse_AuthorCollapseNoDateSorted.txt failed
+Expected:
+(Smith 325 AD, 2000)
+
+Got:
+(Smith 325 AD, 2000, )
+
+Test target/haya-cache\test-suite\processor-tests/humans/collapse_ChicagoAfterCollapse.txt failed
+Expected:
+(Whittaker 1967, 1975; Wiens 1989a, 1989b)
+(Wong 1999, 328; 2000, 475; Garcia 1998, 67)
+(Whittaker 1967; Wiens 1989b)
+
+Got:
+(Whittaker 1967, 1975; Wiens 1989a, 1989b)
+(Wong 1999, 328, 2000, 475; Garcia 1998, 67)
+(Whittaker 1967, Wiens 1989b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/collapse_YearSuffixCollapse.txt failed
+Expected:
+Smith 2000a–e, 2001
+Smith 2000a,c–e, 2001
+
+Got:
+Smith 2000a, 2000b, 2000c, 2000d, 2000e, 2001
+Smith 2000a, 2000c, 2000d, 2000e, 2001
+
+Test target/haya-cache\test-suite\processor-tests/humans/collapse_YearSuffixCollapseNoYearSuffixDelimiter.txt failed
+Expected:
+Smith 2000a–e;2001
+Smith 2000a;c–e;2001
+
+Got:
+Smith 2000a;2000b;2000c;2000d;2000e;2001
+Smith 2000a;2000c;2000d;2000e;2001
+
+Test target/haya-cache\test-suite\processor-tests/humans/collapse_YearSuffixImplicitCollapseNoYearSuffixDelimiter.txt failed
+Expected:
+Smith 2000a–e;2001
+Smith 2000a;c–e;2001
+
+Got:
+Smith 2000a;2000b;2000c;2000d;2000e;2001
+Smith 2000a;2000c;2000d;2000e;2001
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_DateBC.txt failed
+Expected:
+(250 BC)
+
+Got:
+(251 BC)
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_DateNoDateNoTest.txt failed
+Expected:
+[CSL STYLE ERROR: reference with no printed form.]
+
+Got:
+
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_InPress.txt failed
+Expected:
+(John Doe (in press))
+
+Got:
+(John Doe)
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_NegativeDateSort.txt failed
+Expected:
+100 BC-7-13, 44 BC-3-15, 54 AD-10-13, 68 AD-6-11
+
+Got:
+101 BC-7-13, 45 BC-3-15, 54 AD-10-13, 68 AD-6-11
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_NegativeDateSortViaMacro.txt failed
+Expected:
+100 BC-7-13, 44 BC-3-15, 54 AD-10-13, 68 AD-6-11
+
+Got:
+101 BC-7-13, 45 BC-3-15, 54 AD-10-13, 68 AD-6-11
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_NegativeDateSortViaMacroOnYearMonthOnly.txt failed
+Expected:
+BookX (100 BC-7-14), BookY (100 BC-7-13), BookA (68 AD-3-16), BookB (68 AD-3-15)
+
+Got:
+BookX (101 BC-7-14), BookY (101 BC-7-13), BookA (68 AD-3-16), BookB (68 AD-3-15)
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_OtherAlone.txt failed
+Expected:
+(maybe around 2000bc sometime?)
+
+Got:
+
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_String.txt failed
+Expected:
+date: Bogus Date
+
+Got:
+
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_Uncertain.txt failed
+Expected:
+circa 15 December 2005; 20 December 2005
+
+Got:
+15 December 2005; 20 December 2005
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_VariousInvalidDates.txt failed
+Expected:
+Date: (); Date: (Spring); Date: (Spring); Date: (); Date: (Winter)
+
+Got:
+Date: (255); Date: (13); Date: (17); Date: (60); Date: (24)
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_YearSuffixImplicitWithNoDate.txt failed
+Expected:
+(John Doe n.d.-a [Accessed: June 1, 1965]; John Doe n.d.-b [Accessed: June 1, 2065])
+
+Got:
+(John Doe n.d. [Accessed: June 1, 1965]; John Doe n.d. [Accessed: June 1, 2065])
+
+Test target/haya-cache\test-suite\processor-tests/humans/date_YearSuffixWithNoDate.txt failed
+Expected:
+(John Doe n.d.-a [Accessed: June 1, 1965]; John Doe n.d.-b [Accessed: June 1, 2065])
+
+Got:
+(John Doe n.d. [Accessed: June 1, 1965]; John Doe n.d. [Accessed: June 1, 2065])
+
+Test target/haya-cache\test-suite\processor-tests/humans/decorations_Baseline.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><sup>Little, Stuart, <span class="baseline">My Short Narrative</span> (1990)</sup></div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><sup>Little, Stuart</sup><sup>, </sup><span style="baseline">My Short Narrative</span><sup> </sup><sup>(1990)</sup></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/decorations_NestedQuotes.txt failed
+Expected:
+“My ‘Amazing’ Title”
+
+Got:
+“My “Amazing” Title”
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AddNamesFailure.txt failed
+Expected:
+Smith et al. (1980); Smith et al. (1980)
+
+Got:
+Smith, Brown & Jones (1980); Smith, Brown & Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AddNamesFailureWithAddGivenname.txt failed
+Expected:
+Smith et al. (1980); Smith et al. (1980)
+
+Got:
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & John Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AllNamesBaseNameCountOnFailureIfYearSuffixAvailable.txt failed
+Expected:
+Asthma et al. (1990a); Asthma et al. (1990b); Dropsy, Edward Enteritis, et al. (2000); Dropsy, Ernie Enteritis, et al. (2000)
+
+Got:
+Asthma et al. (1990a); Asthma et al. (1990b); Devon Dropsy, Edward Enteritis, et al. (2000); Devon Dropsy, Ernie Enteritis, et al. (2000)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AllNamesGenerally.txt failed
+Expected:
+Asthma, Bosworth Bronchitis and C. Cold (1980); Asthma, Beauregarde Bronchitis and O. Cold (1995)
+
+Got:
+Asthma, Bronchitis and Cold (1980); Asthma, Bronchitis and Cold (1995)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AllNamesSimpleSequence.txt failed
+Expected:
+(Nolan J. Malone 2001; Kemp Malone 1951)
+
+Got:
+(Malone 2001; Malone 1951)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AllNamesWithInitialsGenerally.txt failed
+Expected:
+Asthma, Bronchitis and C. Cold (1980); Asthma, Bronchitis and O. Cold (1995)
+
+Got:
+Asthma, Bronchitis and Cold (1980); Asthma, Bronchitis and Cold (1995)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg1a.txt failed
+Expected:
+Smith, Brown, et al. (1980); Smith, Brown, et al. (1980)
+Smith, Brown, et al. (1980); Smith, Benson, et al. (1980)
+Smith, Brown, et al. (1980); Smith, Brown, et al. (1980)
+
+Got:
+Smith, Brown & Jones (1980); Smith, Brown & Jones (1980)
+Smith, Brown & Jones (1980); Smith, Benson, et al. (1980)
+Smith, Brown & Jones (1980); Smith, Brown & Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg1b.txt failed
+Expected:
+Smith, Brown & J. Jones (1980); Smith, Brown & J. Jones (1980)
+Smith, Brown & J. Jones (1980); Smith, Benson, et al. (1980)
+Smith, Brown & J. Jones (1980); Smith, Brown & A. Jones (1980)
+
+Got:
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & John Jones (1980)
+John Smith, John Brown & John Jones (1980); John Smith, Benson, et al. (1980)
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & A. Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg1c.txt failed
+Expected:
+Smith et al. (1980); Smith et al. (1980)
+Smith et al. (1980); Smith et al. (1980)
+Smith et al. (1980); Smith et al. (1980)
+
+Got:
+John Smith et al. (1980); John Smith et al. (1980)
+John Smith et al. (1980); John Smith et al. (1980)
+John Smith et al. (1980); John Smith et al. (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg2.txt failed
+Expected:
+Smith, Brown & J. Jones (1980); Smith, Brown & J. Jones (1980)
+Smith, Brown & J. Jones (1980); Smith, Benson, et al. (1980)
+Smith, Brown & J. Jones (1980); Smith, Brown & A. Jones (1980)
+
+Got:
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & John Jones (1980)
+John Smith, John Brown & John Jones (1980); John Smith, Benson, et al. (1980)
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & A. Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg3.txt failed
+Expected:
+Smith, Brown & J. Jones (1980a); Smith, Brown & J. Jones (1980b)
+Smith, Brown & J. Jones (1980a); Smith, Benson, et al. (1980)
+Smith, Brown & J. Jones (1980a); Smith, Brown & A. Jones (1980)
+
+Got:
+Smith et al. (1980a); Smith et al. (1980b)
+Smith et al. (1980a); John Smith, Benson, et al. (1980)
+Smith et al. (1980a); John Smith, John Brown & A. Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg4.txt failed
+Expected:
+Smith, Brown & J. Jones (1980); Smith, Brown & J. Jones (1980)
+Smith, Brown & J. Jones (1980); Smith, Benson, et al. (1980)
+Smith, Brown & J. Jones (1980); Smith, Brown & A. Jones (1980)
+
+Got:
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & John Jones (1980)
+John Smith, John Brown & John Jones (1980); John Smith, Benson, et al. (1980)
+John Smith, John Brown & John Jones (1980); John Smith, John Brown & A. Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_AndreaEg5.txt failed
+Expected:
+Smith, Brown & J. Jones (1980a); Smith, Brown & J. Jones (1980b)
+Smith, Brown & J. Jones (1980a); Smith, Benson, et al. (1980)
+Smith, Brown & J. Jones (1980a); Smith, Brown & A. Jones (1980)
+
+Got:
+Smith et al. (1980a); Smith et al. (1980b)
+Smith et al. (1980a); John Smith, Benson, et al. (1980)
+Smith et al. (1980a); John Smith, John Brown & A. Jones (1980)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteBaseNameCountOnFailureIfYearSuffixAvailable.txt failed
+Expected:
+Asthma, Bosworth Bronchitis, et al. (1990); Asthma, Beauregarde Bronchitis, et al. (1990); Dropsy, Edward Enteritis, et al. (2000); Dropsy, Ernie Enteritis, et al. (2000)
+
+Got:
+Albert Asthma, Bosworth Bronchitis, et al. (1990); Albert Asthma, Beauregarde Bronchitis, et al. (1990); Devon Dropsy, Edward Enteritis, et al. (2000); Devon Dropsy, Ernie Enteritis, et al. (2000)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteGivennameExpandCrossNestedNames.txt failed
+Expected:
+J. Doe, Jane Roe, Robert Jones; J. Doe, Josephine Roe, et al.; J. Doe, Jane Roe, Richard Jones
+
+Got:
+John Doe, Jane Roe, Robert Jones; John Doe, Josephine Roe, et al.; John Doe, Jane Roe, Richard Jones
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteIncremental1.txt failed
+Expected:
+(Baines, Lightfoot, Benedettini, et al., 2009)
+(Baines, Lightfoot and Kay, 2009)
+(Grubic et al., 2009)
+
+Got:
+(T. S. Baines, H. W. Lightfoot, Benedettini, et al., 2009)
+(T. S. Baines, H. W. Lightfoot and Kay, 2009)
+(Grubic et al., 2009)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteIncremental2.txt failed
+Expected:
+(Baines, Lightfoot, Benedettini, et al., 2009; Baines, Lightfoot and Kay, 2009)
+
+Got:
+(T. S. Baines, H. W. Lightfoot and Kay, 2009; T. S. Baines, H. W. Lightfoot, Benedettini, et al., 2009)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteMinimalGivennameExpandMinimalNames.txt failed
+Expected:
+A. Asthma, Brandon Bronchitis, et al.; A. Asthma, Biff Bronchitis, et al.
+
+Got:
+Albert Asthma, Brandon Bronchitis, et al.; Albert Asthma, Biff Bronchitis, et al.
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ByCiteRetainNamesOnFailureIfYearSuffixNotAvailable.txt failed
+Expected:
+Asthma, Bosworth Bronchitis, et al. (1990); Asthma, Beauregarde Bronchitis, et al. (1990); Dropsy, Edward Enteritis, et al. (2000); Dropsy, Ernie Enteritis, et al. (2000)
+
+Got:
+Albert Asthma, Bosworth Bronchitis, et al. (1990); Albert Asthma, Beauregarde Bronchitis, et al. (1990); Devon Dropsy, Edward Enteritis, et al. (2000); Devon Dropsy, Ernie Enteritis, et al. (2000)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_CitationLabelDefault.txt failed
+Expected:
+Asth00a; Asth00b; Bron00
+
+Got:
+; ; 
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_CitationLabelInData.txt failed
+Expected:
+SpiffLabel1900a; SpiffLabel1900b; Bron00; BrCh98; DEFG26
+
+Got:
+SpiffLabel1900; SpiffLabel1900; ; ; 
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_DisambiguateTrueReflectedInBibliography.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Smith, Book One</div>
+  <div class="csl-entry">Smith, Book Two</div>
+  <div class="csl-entry">Brown</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Smith</div><div class="csl-entry">Smith, Book Two</div><div class="csl-entry">Brown</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ExtraTextCitation.txt failed
+Expected:
+Bumke, Courtly Culture: Literature and Society in the High Middle Ages
+Bumke, Höfische
+
+Got:
+Joachim Bumke
+Bumke, Höfische
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_IncrementalExtraText.txt failed
+Expected:
+Yost Trisk
+John Smith, Book One
+John Smith, Book Two
+John Smith, Complete Works, ed. 5
+John Smith, Complete Works, ed. 6
+
+Got:
+Yost Trisk
+John Smith
+John Smith, Book Two, ed. 4
+John Smith, Complete Works, ed. 5
+John Smith, Complete Works, ed. 6
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_InitializeWithButNoDisambiguation.txt failed
+Expected:
+(Doe, 1965a, 1965b)
+
+Got:
+(Doe, 1965a; 1965b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_PrimaryNameGenerally.txt failed
+Expected:
+Aloysius Asthma and Bronchitis (1980); Artemis Asthma and Bronchitis (1995)
+
+Got:
+Asthma and Bronchitis (1980); Asthma and Bronchitis (1995)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_PrimaryNameWithInitialsLimitedToPrimary.txt failed
+Expected:
+A. Asthma et al. (1980); G. Asthma et al. (1995); Dropsy and Asthma (1995)
+
+Got:
+Asthma et al. (1980); Asthma et al. (1995); Dropsy and Asthma (1995)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_PrimaryNameWithParticle.txt failed
+Expected:
+dos Smith; Smith
+
+Got:
+Smith, A. dos; Smith, B.
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_SkipAccessedYearSuffix.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><b>Doe J</b>. His Anonymous Life. http://example.com (accessed 15 December 2000). 1965a</div>
+  <div class="csl-entry"><b>Doe J</b>. His Anonymous Life. http://example.com (accessed 15 December 2000). 1965b</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><b>Doe J</b>. His Anonymous Life.  http://example.com (accessed 15 December 2000). 1965a</div><div class="csl-entry"><b>Doe J</b>. His Anonymous Life.  http://example.com (accessed 15 December 2000). 1965b</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_ToInitialOnly.txt failed
+Expected:
+Smith; Smith; B. Muggins; J. Muggins
+
+Got:
+C. Smith; C. Smith; B. Muggins; J. Muggins
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_Trigraph.txt failed
+Expected:
+Aalt02a
+Aalt02b
+Aalt02c
+
+Got:
+
+
+
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_YearSuffixAndSort.txt failed
+Expected:
+1990m!; 1990l!; 1990k!; 1990j!; 1990i!; 1990h!; 1990g!; 1990f!; 1990e!; 1990d!; 1990c!; 1990b!; 1990a!
+
+Got:
+1990a!; 1990b!; 1990c!; 1990d!; 1990e!; 1990f!; 1990g!; 1990h!; 1990i!; 1990j!; 1990k!; 1990l!; 1990m!
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_YearSuffixAtTwoLevels.txt failed
+Expected:
+Smith, Jones & Brown (1986a); Smith, Jones & Brown (1986b); Smith, Jones, Brown, et al. (1986a); Smith, Jones, Brown, et al. (1986b)
+
+Got:
+Smith et al. (1986a); Smith et al. (1986b); Smith et al. (1986a); Smith et al. (1986b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/disambiguate_YearSuffixWithMixedCreatorTypes.txt failed
+Expected:
+(Asthma 1990a)
+(Asthma 1990b)
+
+Got:
+(Asthma 1990)
+(Asthma 1990)
+
+Test target/haya-cache\test-suite\processor-tests/humans/display_AuthorAsHeading.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+
+    <div class="csl-block">John Aloysius Doe</div>
+
+    <div class="csl-left-margin">1999</div><div class="csl-right-inline">Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">2000</div><div class="csl-right-inline">Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb</div>
+  </div>
+  <div class="csl-entry">
+
+    <div class="csl-block">Jane Henrietta Roe</div>
+
+    <div class="csl-left-margin">1999a</div><div class="csl-right-inline">Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">1999b</div><div class="csl-right-inline">Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">2000</div><div class="csl-right-inline">Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-block">John Aloysius Doe</div><div class="csl-left-margin">1999</div><div class="csl-right-inline">Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa Aaaaa</div></div><div class="csl-entry"><div class="csl-block">John Aloysius Doe</div><div class="csl-left-margin">2000</div><div class="csl-right-inline">Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb Bbbbb</div></div><div class="csl-entry"><div class="csl-block">Jane Henrietta Roe</div><div class="csl-left-margin">1999a</div><div class="csl-right-inline">Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc Ccccc</div></div><div class="csl-entry"><div class="csl-block">Jane Henrietta Roe</div><div class="csl-left-margin">1999b</div><div class="csl-right-inline">Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd Ddddd</div></div><div class="csl-entry"><div class="csl-block">Jane Henrietta Roe</div><div class="csl-left-margin">2000</div><div class="csl-right-inline">Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee Eeeee</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/display_LostSuffix.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Book One, (zitiert als: <i>Aalto</i>, Chapter One).</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Book One,  (zitiert als: <i>Aalto</i>, Chapter One).</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/display_SecondFieldAlignClone.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline"> John Aloysius Doe, “John’s Book” (1999)</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">[2]</div><div class="csl-right-inline"> Jane Henrietta Roe, “Jane’s Book” (2000)</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">[1]</div><div class="csl-right-inline"> John Aloysius Doe, “John's Book” (1999)</div></div><div class="csl-entry"><div class="csl-left-margin">[2]</div><div class="csl-right-inline"> Jane Henrietta Roe, “Jane's Book” (2000)</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_Apostrophes.txt failed
+Expected:
+“Supplément Aux Annales Du Service Des Antiquités de l’Égypte, Cahier” (Cairo: Conseil Suprême des Antiquités de l’Égypte [formerly Imprimerie de l’Institut français d’archéologie orientale], n.d.).
+
+Got:
+“Supplément Aux Annales Du Service Des Antiquités De L'égypte, Cahier” (Cairo: Conseil Suprême des Antiquités de l'Égypte [formerly Imprimerie de l'Institut français d'archéologie orientale], n.d.).
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_LeadingSingleQuote.txt failed
+Expected:
+“‘Parmenides’ 132c–133a and the development of Plato’s thought”
+
+Got:
+“‘Parmenides’ 132c–133a and the development of Plato's thought”
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_QuotesInFieldNotOnNode.txt failed
+Expected:
+Speak, “friend,” and enter.
+
+Got:
+Speak, 'friend', and enter.
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_QuotesNodeLevelMarkup.txt failed
+Expected:
+“Speak, ‘friend’ of mine on this day, March 15, 1973, and enter.”
+
+Got:
+“Speak, "friend" of mine on this day, March 15, 1973, and enter.”
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_SingleBeforeColon.txt failed
+Expected:
+“Nobody Knows You’re a Dog”: As Iconic Internet Cartoon Turns 20, Creator Peter Steiner Knows the Joke Rings as Relevant as Ever
+
+Got:
+'Nobody Knows You're a Dog': As Iconic Internet Cartoon Turns 20, Creator Peter Steiner Knows the Joke Rings as Relevant as Ever
+
+Test target/haya-cache\test-suite\processor-tests/humans/flipflop_StartingApostrophe.txt failed
+Expected:
+IEEE Conference on Emerging Technologies and Factory Automation (ETFA ’09)
+
+Got:
+IEEE Conference on Emerging Technologies and Factory Automation (ETFA '09)
+
+Test target/haya-cache\test-suite\processor-tests/humans/fullstyles_ChicagoArticleTitleQuestion.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe, John. 1994. An article is it? <i>New Thinker</i> 10: 5.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe, John. 1994. An article is it?. <i>New Thinker</i> 10: 5.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/fullstyles_ChicagoAuthorDateSimple.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe, John. 1990. <i>Book A</i>. Brobdingnag: Zardoz Press.</div>
+  <div class="csl-entry">Doe, John, and Jane Roe. 1991. <i>Book B</i>.</div>
+  <div class="csl-entry">Doe, John, Jane Roe, and Alvin Asthma. 1992. <i>Book C</i>.</div>
+  <div class="csl-entry">Doe, John, Jane Roe, Alvin Asthma, Bob Bronchitis, Chris Cold, Don Dropsy, Ernie Enteritis, et al. 1993. <i>Book D</i>.</div>
+  <div class="csl-entry">---. 1994. <i>Book E</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe, John. 1990. <i>Book A</i>. Brobdingnag: Zardoz Press,.</div><div class="csl-entry">Doe, John, and Jane Roe. 1991. <i>Book B</i>.</div><div class="csl-entry">Doe, John, Jane Roe, and Alvin Asthma. 1992. <i>Book C</i>.</div><div class="csl-entry">Doe, John, Jane Roe, Alvin Asthma, Bob Bronchitis, Chris Cold, Don Dropsy, Ernie Enteritis, et al. 1993. <i>Book D</i>.</div><div class="csl-entry">Doe, John, Jane Roe, Alvin Asthma, Bob Bronchitis, Chris Cold, Don Dropsy, Ernie Enteritis, et al. 1994. <i>Book E</i>.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/group_SuppressTermInMacro.txt failed
+Expected:
+His Anonymous Life
+
+Got:
+His Anonymous Life, in 
+
+Test target/haya-cache\test-suite\processor-tests/humans/group_SuppressTermWhenNoOutputFromPartialDate.txt failed
+Expected:
+Only this
+
+Got:
+Only this (and not this)
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_CollapsedPageNumberPluralDetection.txt failed
+Expected:
+His Anonymous Life, page 327-30
+His Anonymous Life, pages 427–430
+
+Got:
+His Anonymous Life, page 327\-30
+His Anonymous Life, pages 427–30
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_PluralWithAnd.txt failed
+Expected:
+pages 213 and 235
+
+Got:
+page 213 and 235
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_PluralWithCommaAnd.txt failed
+Expected:
+pages 213, and 235
+
+Got:
+page 213, and 235
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_PluralWithCommaLocalizedAnd.txt failed
+Expected:
+pages 213, et 235
+
+Got:
+page 213, et 235
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_PluralWithLocalizedAmpersand.txt failed
+Expected:
+pages 213 AMPERSAND 235
+
+Got:
+pages 213 & 235
+
+Test target/haya-cache\test-suite\processor-tests/humans/label_PluralWithLocalizedAnd.txt failed
+Expected:
+pages 213 et 235
+
+Got:
+page 213 et 235
+
+Test target/haya-cache\test-suite\processor-tests/humans/locator_SingularEmbeddedLabelAfterPlural.txt failed
+Expected:
+Book One, pages 367–368, fig. 333
+
+Got:
+Book One, page 367-368, fig. 333
+
+Test target/haya-cache\test-suite\processor-tests/humans/locator_TrickyEntryForPlurals.txt failed
+Expected:
+Book Title, vol. 1, fol. 186, 8 April 1544
+
+Got:
+Book Title, p. vol. 1, fol. 186, 8 April 1544
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_CapitalizeFirstOccurringNameParticle.txt failed
+Expected:
+de Simone
+
+Got:
+Simone
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_CapitalizeFirstOccurringTerm.txt failed
+Expected:
+And
+
+Got:
+and
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_CitationLabelInBibliography.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[Doe65]</div><div class="csl-right-inline">Doe, J.: Book A., 1965.</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">[RoNo78a]</div><div class="csl-right-inline">Roe, J. and Noakes, R.: Book A., 1978.</div>
+  </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">[RoNo78b]</div><div class="csl-right-inline">Roe, J. and Noakes, R.: Book A., 1978.</div>
+  </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">Roe, J. and Noakes, R.</div><div class="csl-right-inline">: Book A., 1978.</div></div><div class="csl-entry"><div class="csl-left-margin">Doe, J.</div><div class="csl-right-inline">: Book A., 1965.</div></div><div class="csl-entry"><div class="csl-left-margin">Roe, J. and Noakes, R.</div><div class="csl-right-inline">: Book A., 1978.</div></div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_CitationLabelInCitation.txt failed
+Expected:
+[Doe65, RoNo78a, RoNo78b]
+
+Got:
+[, , ]
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_ImplicitYearSuffixExplicitDelimiter.txt failed
+Expected:
+(1965a,b)
+
+Got:
+(1965a; 1965b)
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_NameSuffixNoComma.txt failed
+Expected:
+John Doe III
+
+Got:
+John, III Doe
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_NameSuffixWithComma.txt failed
+Expected:
+John Doe, Jr.
+
+Got:
+John,! Jr. Doe
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_PunctuationInQuoteTrueSuppressExtra.txt failed
+Expected:
+“Article A?” Journal B
+
+Got:
+“Article A?”. Journal B
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_StripPeriodsTrueShortForm.txt failed
+Expected:
+Am LJ; Am LJ.
+
+Got:
+American Law Journal; Am LJ.
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_SubsequentAuthorSubstitute.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">John Smith and Jane Roe, Book A (2000)</div>
+  <div class="csl-entry">———, Book B (2001)</div>
+  <div class="csl-entry">John Smith, Book C (2002)</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">John Smith and Jane Roe, Book A (2000)</div><div class="csl-entry">John Smith and Jane Roe, Book B (2001)</div><div class="csl-entry">John Smith, Book C (2002)</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_SubsequentAuthorSubstituteNotFooled.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Silverstein, Theodore, trans. “Sir Gawain and the Green Knight.” Chicago: University of Chicago Press, 1974.</div>
+  <div class="csl-entry">Soltes, Ori A., ed. “Georgia: Art and Civilization through the Ages.” London: Philip Wilson, 1999.</div>
+  <div class="csl-entry">“The Chicago Manual of Style.” Chicago: University of Chicago Press, 1993.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Silverstein, Theodore, trans. “Sir Gawain and the Green Knight.” In . Chicago: University of Chicago Press, 1974.</div><div class="csl-entry">Soltes, Ori A., ed. “Georgia: Art and Civilization through the Ages.” In . London: Philip Wilson, 1999.</div><div class="csl-entry">“The Chicago Manual of Style.” In . Chicago: University of Chicago Press, 1993.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/magic_SubsequentAuthorSubstituteOfTitleField.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Warren Smith (2000)</div>
+  <div class="csl-entry">----- (2001)</div>
+  <div class="csl-entry">Book Y (2002)</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Warren Smith (2000)</div><div class="csl-entry">Warren Smith (2001)</div><div class="csl-entry">Book Y (2002)</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/nameattr_NamesDelimiterOnBibliographyInBibliography.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">John Doe AND ALSO THE EDITOR Jane Roe</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">John DoeJane Roe</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/nameattr_NamesDelimiterOnCitationInCitation.txt failed
+Expected:
+John Doe AND ALSO THE EDITOR Jane Roe
+
+Got:
+John DoeJane Roe
+
+Test target/haya-cache\test-suite\processor-tests/humans/nameattr_NamesDelimiterOnStyleInBibliography.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">John Doe AND ALSO THE EDITOR Jane Roe</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">John DoeJane Roe</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/nameattr_NamesDelimiterOnStyleInCitation.txt failed
+Expected:
+John Doe AND ALSO THE EDITOR Jane Roe
+
+Got:
+John DoeJane Roe
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ApostropheInGivenName.txt failed
+Expected:
+Shun’ichi Aalto
+
+Got:
+Shun'ichi Aalto
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ArticularWithComma.txt failed
+Expected:
+Jeffrey Doe, Jr.
+
+Got:
+Jeffrey Doe Jr.
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_CeltsAndToffsCrowdedInitials.txt failed
+Expected:
+O’Malley, C.D., & Saunders, J.B. de C.M.
+
+Got:
+O’Malley, C.D., & Saunders, J.B.d.C.M.
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_CeltsAndToffsSpacedInitials.txt failed
+Expected:
+O’Malley, C. D., & Saunders, J. B. de C. M.
+
+Got:
+O’Malley, C. D., & Saunders, J. B. d. C. M.
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_CiteGroupDelimiterWithYearSuffixCollapse2.txt failed
+Expected:
+(Aalto 2015a,b; Bartleby 2010; Aalto 2015c–e)
+
+Got:
+(Aalto 2015a,2015b; Aalto 2015c,2015d,2015e,2010)
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_DelimiterAfterInverted.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Australian Government Productivity Commission & New Zealand Productivity Commission</div>
+  <div class="csl-entry">Weinstock, R., Leong, G. B., & Silva, J. A.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Australian Government Productivity Commission, & New Zealand Productivity Commission</div><div class="csl-entry">Weinstock, R., Leong, G. B., & Silva, J. A.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_EtAlWithCombined.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">John Doe。</div>
+  <div class="csl-entry">——，Ziggy Zither等點校。</div>
+  <div class="csl-entry">田中太郎, Yossarian Yoda, 等翻譯員。</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">John Doe。</div><div class="csl-entry">John Doe，Ziggy Zither 等點校。</div><div class="csl-entry">田中太郎, Yossarian Yoda, 等翻譯員。</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_HebrewAnd.txt failed
+Expected:
+תפוחו תפוז
+
+Got:
+תפוח ו  תפוז
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_HyphenatedNonDroppingParticle1.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Marple, Mary</div>
+  <div class="csl-entry">One, Alan al-</div>
+  <div class="csl-entry">Participle, Paul</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">al-One, Alan</div><div class="csl-entry">Marple, Mary</div><div class="csl-entry">Participle, Paul</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_HyphenatedNonDroppingParticle2.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Mary Marple</div>
+  <div class="csl-entry">Alan al-One</div>
+  <div class="csl-entry">Paul Participle</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Alan al-One</div><div class="csl-entry">Mary Marple</div><div class="csl-entry">Paul Participle</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeFalse.txt failed
+Expected:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M E]
+[Crosler, M E.] becomes [Crosler, M E]
+[Dimauro, John M.E.] becomes [Dimauro, John M E]
+[Evans, M E] becomes [Evans, M E]
+[Faquhar, ME.] becomes [Faquhar, ME]
+[Grant, Me.] becomes [Grant, Me]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph M E]
+[Immel, Ph. M.E.] becomes [Immel, Ph M E]
+
+Got:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M.E]
+[Crosler, M E.] becomes [Crosler, M E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M.E.]
+[Evans, M E] becomes [Evans, M E]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M.E.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeFalseEmpty.txt failed
+Expected:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, ME]
+[Crosler, M E.] becomes [Crosler, ME]
+[Dimauro, John M.E.] becomes [Dimauro, John ME]
+[Evans, M E] becomes [Evans, ME]
+[Faquhar, ME.] becomes [Faquhar, ME]
+[Grant, Me.] becomes [Grant, Me]
+[Hudson, Ph.M.E.] becomes [Hudson, PhME]
+[Immel, Ph. M.E.] becomes [Immel, PhME]
+
+Got:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M.E]
+[Crosler, M E.] becomes [Crosler, M E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M.E.]
+[Evans, M E] becomes [Evans, M E]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M.E.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeFalsePeriod.txt failed
+Expected:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M.E.]
+[Crosler, M E.] becomes [Crosler, M.E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M.E.]
+[Evans, M E] becomes [Evans, M.E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph.M.E.]
+
+Got:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M.E]
+[Crosler, M E.] becomes [Crosler, M. E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M.E.]
+[Evans, M E] becomes [Evans, M. E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M.E.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeFalsePeriodSpace.txt failed
+Expected:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M. E.]
+[Crosler, M E.] becomes [Crosler, M. E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M. E.]
+[Evans, M E] becomes [Evans, M. E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph. M. E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M. E.]
+
+Got:
+[Axford, ME] becomes [Axford, ME]
+[Behn, M.E] becomes [Behn, M.E]
+[Crosler, M E.] becomes [Crosler, M. E.]
+[Dimauro, John M.E.] becomes [Dimauro, John M.E.]
+[Evans, M E] becomes [Evans, M. E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M.E.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeTrue.txt failed
+Expected:
+[Axford, ME] becomes [Axford, M]
+[Behn, M.E] becomes [Behn, M E]
+[Crosler, M E.] becomes [Crosler, M E]
+[Dimauro, John M.E.] becomes [Dimauro, J M E]
+[Evans, M E] becomes [Evans, M E]
+[Faquhar, ME.] becomes [Faquhar, ME]
+[Grant, Me.] becomes [Grant, Me]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph M E]
+[Immel, Ph. M.E.] becomes [Immel, Ph M E]
+
+Got:
+[Axford, ME] becomes [Axford, M]
+[Behn, M.E] becomes [Behn, M]
+[Crosler, M E.] becomes [Crosler, M E]
+[Dimauro, John M.E.] becomes [Dimauro, J M]
+[Evans, M E] becomes [Evans, M E]
+[Faquhar, ME.] becomes [Faquhar, M]
+[Grant, Me.] becomes [Grant, M]
+[Hudson, Ph.M.E.] becomes [Hudson, P]
+[Immel, Ph. M.E.] becomes [Immel, P M]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeTrueEmpty.txt failed
+Expected:
+[Axford, ME] becomes [Axford, M]
+[Behn, M.E] becomes [Behn, ME]
+[Crosler, M E.] becomes [Crosler, ME]
+[Dimauro, John M.E.] becomes [Dimauro, JME]
+[Evans, M E] becomes [Evans, ME]
+[Faquhar, ME.] becomes [Faquhar, ME]
+[Grant, Me.] becomes [Grant, Me]
+[Hudson, Ph.M.E.] becomes [Hudson, PhME]
+[Immel, Ph. M.E.] becomes [Immel, PhME]
+
+Got:
+[Axford, ME] becomes [Axford, M]
+[Behn, M.E] becomes [Behn, M]
+[Crosler, M E.] becomes [Crosler, ME]
+[Dimauro, John M.E.] becomes [Dimauro, JM]
+[Evans, M E] becomes [Evans, ME]
+[Faquhar, ME.] becomes [Faquhar, M]
+[Grant, Me.] becomes [Grant, M]
+[Hudson, Ph.M.E.] becomes [Hudson, P]
+[Immel, Ph. M.E.] becomes [Immel, PM]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeTruePeriod.txt failed
+Expected:
+[Axford, ME] becomes [Axford, M.]
+[Behn, M.E] becomes [Behn, M.E.]
+[Crosler, M E.] becomes [Crosler, M.E.]
+[Dimauro, John M.E.] becomes [Dimauro, J.M.E.]
+[Evans, M E] becomes [Evans, M.E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph.M.E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph.M.E.]
+
+Got:
+[Axford, ME] becomes [Axford, M.]
+[Behn, M.E] becomes [Behn, M.]
+[Crosler, M E.] becomes [Crosler, M.E.]
+[Dimauro, John M.E.] becomes [Dimauro, J.M.]
+[Evans, M E] becomes [Evans, M.E.]
+[Faquhar, ME.] becomes [Faquhar, M.]
+[Grant, Me.] becomes [Grant, M.]
+[Hudson, Ph.M.E.] becomes [Hudson, P.]
+[Immel, Ph. M.E.] becomes [Immel, P.M.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InitialsInitializeTruePeriodSpace.txt failed
+Expected:
+[Axford, ME] becomes [Axford, M.]
+[Behn, M.E] becomes [Behn, M. E.]
+[Crosler, M E.] becomes [Crosler, M. E.]
+[Dimauro, John M.E.] becomes [Dimauro, J. M. E.]
+[Evans, M E] becomes [Evans, M. E.]
+[Faquhar, ME.] becomes [Faquhar, ME.]
+[Grant, Me.] becomes [Grant, Me.]
+[Hudson, Ph.M.E.] becomes [Hudson, Ph. M. E.]
+[Immel, Ph. M.E.] becomes [Immel, Ph. M. E.]
+
+Got:
+[Axford, ME] becomes [Axford, M.]
+[Behn, M.E] becomes [Behn, M.]
+[Crosler, M E.] becomes [Crosler, M. E.]
+[Dimauro, John M.E.] becomes [Dimauro, J. M.]
+[Evans, M E] becomes [Evans, M. E.]
+[Faquhar, ME.] becomes [Faquhar, M.]
+[Grant, Me.] becomes [Grant, M.]
+[Hudson, Ph.M.E.] becomes [Hudson, P.]
+[Immel, Ph. M.E.] becomes [Immel, P. M.]
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InTextMarkupInitialize.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><b>Doe</b>, <b>J.</b> Q.</div>
+  <div class="csl-entry"><b>Doe</b>, <b>J.</b>-Q.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><b>Doe</b>, <. Q.</div><div class="csl-entry"><b>Doe</b>, <.-Q.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_InTextMarkupNormalizeInitials.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"><b>Doe</b>, <b>J.</b> Q.</div>
+  <div class="csl-entry"><b>Doe</b>, <b>J.</b>-Q.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><b>Doe</b>, <. Q.</div><div class="csl-entry"><b>Doe</b>, <.-Q.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_LongAbbreviation.txt failed
+Expected:
+Ts. Tserendorj
+
+Got:
+T. Tserendorj
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_LowercaseSurnameSuffix.txt failed
+Expected:
+G Chen
+
+Got:
+G-p Chen
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_namepartAffixes.txt failed
+Expected:
+[Jean] (de La Fontaine III)
+
+Got:
+[Jean de] (La Fontaine III)
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_OnlyGivenname.txt failed
+Expected:
+Banksy
+
+Got:
+B. 
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParsedCommaDelimitedDroppingParticleSortOrderingWithoutAffixes.txt failed
+Expected:
+AUBIGNAC, François Hédelin, abbé d’
+
+Got:
+AUBIGNAC, François Hédelin, abbé d'
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParsedDroppingParticleWithApostrophe.txt failed
+Expected:
+François Hédelin (d’Aubignac)
+
+Got:
+François Hédelin d' (Aubignac)
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParseNames.txt failed
+Expected:
+van Gogh, Vincent; Humboldt, Alexander von; van der Vlist, Eric
+
+Got:
+Gogh, Vincent van; Humboldt, Alexander von; Vlist, Eric van der
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParticleCaps1.txt failed
+Expected:
+(van One, van Two)
+(van Three, Van Four)
+
+Got:
+(One, Two)
+(Three, Van Four)
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParticleCaps2.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">van One, O., van Two, T.</div>
+  <div class="csl-entry">van Three, T., Van Four, F.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">One, O. van, Two, T. van</div><div class="csl-entry">Three, T. van, Van Four, F.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParticleCaps3.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Onename van One, Twoname van Two</div>
+  <div class="csl-entry">Threename van Three, Fourname Van Four</div>
+  <div class="csl-entry">Dick Van Dyke</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Onename van One, Twoname van Two</div><div class="csl-entry">Threename van Three, Fourname Van Four</div><div class="csl-entry">Dick "Van Dyke"</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_ParticleParse1.txt failed
+Expected:
+Smith
+von und zum Jones
+
+Got:
+Smith
+Jones
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_SplitInitials.txt failed
+Expected:
+JJ Doe
+
+Got:
+J Doe
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_SubsequentAuthorSubstituteMultipleNames.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Bumke, Courtly Culture: Literature and Society in the High Middle Ages, Dunlap trans.</div>
+  <div class="csl-entry">-----, Höfische</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Bumke, Courtly Culture: Literature and Society in the High Middle Ages, Dunlap trans.</div><div class="csl-entry">Bumke, Höfische</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_SubsequentAuthorSubstituteSingleField.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Yomiuri Shinbun.</div>
+  <div class="csl-entry">———.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Yomiuri Shinbun.</div><div class="csl-entry">Yomiuri Shinbun.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_SubstituteOnNamesSpanGroupSpanFail.txt failed
+Expected:
+(John Doe)
+
+Got:
+John Doe
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_SubstitutePartialEach.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Title One</div>
+  <div class="csl-entry">---</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Title One</div><div class="csl-entry">Title One</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/name_TwoRolesSameRenderingSeparateRoleLabels.txt failed
+Expected:
+Albert Asthma et al. (eds.), Albert Asthma et al. (trans.)
+
+Got:
+Albert Asthma et al. (eds..), Albert Asthma et al. (trans..)
+
+Test target/haya-cache\test-suite\processor-tests/humans/number_PlainHyphenOrEnDashAlwaysPlural.txt failed
+Expected:
+His Anonymous Life (1) pages 1–2 (cs:text) vs His Anonymous Life (1) pages 1–2 (cs:number); His Anonymous Life (2) pages i–ix (cs:text) vs His Anonymous Life (2) pages i–ix (cs:number); His Anonymous Life (3) page 3-B (cs:text) vs His Anonymous Life (3) page 3-B (cs:number); His Anonymous Life (4) page Michaelson-Morely (cs:text) vs His Anonymous Life (4) page Michaelson-Morely (cs:number)
+
+Got:
+His Anonymous Life (1) pages 1–2 (cs:text) vs His Anonymous Life (1) pages 1–2 (cs:number); His Anonymous Life (2) page i–ix (cs:text) vs His Anonymous Life (2) page i–ix (cs:number); His Anonymous Life (3) page 3\–B (cs:text) vs His Anonymous Life (3) page 3\–B (cs:number); His Anonymous Life (4) pages 4–6 (cs:text) vs His Anonymous Life (4) pages 4–6 (cs:number); His Anonymous Life (4) page Michaelson–Morely (cs:text) vs His Anonymous Life (4) page Michaelson–Morely (cs:number)
+
+Test target/haya-cache\test-suite\processor-tests/humans/page_ChicagoWeird.txt failed
+Expected:
+Example S, at 8n11564–68
+Example T, at n11564–68
+Example U, at n11564-1568
+
+Got:
+Example S, at 8n11564–8n1568
+Example T, at n11564–68
+Example U, at n11564–1568
+
+Test target/haya-cache\test-suite\processor-tests/humans/page_Expand.txt failed
+Expected:
+Example: minimal, at 110–115
+Example: prefix on first number only, at N110-5
+Example: same prefix on both numbers, at N110–N115
+Example: prefix on last number only, at 110-N6
+Example: different prefixes on both numbers, at N110-P5
+Example: leading number before prefix, at 123N110-N5
+Example: multiple ranges, at 123N110-N5, 456K200-99
+Example: first less than second, at 123N110-N5, 000c23-22
+
+Got:
+Example: minimal, at 110–115
+Example: prefix on first number only, at N110–5
+Example: same prefix on both numbers, at N110–N115
+Example: prefix on last number only, at 110–N6
+Example: different prefixes on both numbers, at N110–P5
+Example: leading number before prefix, at 123N110 – N5
+Example: multiple ranges, at 123N110 – N5, 456K200 – 99
+Example: first less than second, at 123N110 – N5, 000c23 – 22
+
+Test target/haya-cache\test-suite\processor-tests/humans/page_ExpandWeirdComposite.txt failed
+Expected:
+Example: weird composite, at 123N110-N5, 456K200-99
+
+Got:
+Example: weird composite, at 123N110 – N5, 456K200 – 99
+
+Test target/haya-cache\test-suite\processor-tests/humans/page_Minimal.txt failed
+Expected:
+Example A, at 101–8
+Example B, at 3–10
+Example C, at 71–2
+Example D, at 96–117
+Example E, at 100–4
+Example F, at 600–13
+Example G, at 1100–23
+Example H, at 107–8
+Example I, at 505–17
+Example J, at 1002–6
+Example K, at 321–5
+Example L, at 415–532
+Example M, at 1536–8
+Example N, at 11564–8
+Example O, at 11564–78
+Example P, at 13792–803
+Example Q, at 1496–504
+Example R, at 2787–816
+Example S, at n11564–8
+Example T, at n11564-1568
+
+Got:
+Example A, at 101–8
+Example B, at 3–10
+Example C, at 71–2
+Example D, at 96–117
+Example E, at 100–4
+Example F, at 600–13
+Example G, at 1100–23
+Example H, at 107–8
+Example I, at 505–17
+Example J, at 1002–6
+Example K, at 321–5
+Example L, at 415–532
+Example M, at 1536–8
+Example N, at 11564–8
+Example O, at 11564–78
+Example P, at 13792–803
+Example Q, at 1496–504
+Example R, at 2787–816
+Example S, at n11564–8
+Example T, at n11564–1568
+
+Test target/haya-cache\test-suite\processor-tests/humans/page_NoOption.txt failed
+Expected:
+Book Thing, at 110–5
+
+Got:
+Book Thing, at 110–115
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelAlways.txt failed
+Expected:
+Doe eds
+
+Got:
+Doeed
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelContextualPlural.txt failed
+Expected:
+Doe and Roe eds
+
+Got:
+Doe and Roeeds
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelContextualSingular.txt failed
+Expected:
+Doe ed
+
+Got:
+Doeed
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelDefaultPlural.txt failed
+Expected:
+Doe and Roe eds
+
+Got:
+Doe and Roeeds
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelDefaultSingular.txt failed
+Expected:
+Doe ed
+
+Got:
+Doeed
+
+Test target/haya-cache\test-suite\processor-tests/humans/plural_NameLabelNever.txt failed
+Expected:
+Doe and Roe ed
+
+Got:
+Doe and Roeeds
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_FrenchOrthography.txt failed
+Expected:
+His « Anonymous » Life
+
+Got:
+His « Anonymous » Life
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_FullMontyField.txt failed
+Expected:
+ENDING IN COLON
+colon: colon
+period.: colon
+semicolon; colon
+exclamation! colon
+question? colon
+comma,: colon
+
+ENDING IN PERIOD
+colon: period
+period. period
+semicolon; period
+exclamation! period
+question? period
+comma,. period
+
+ENDING IN SEMICOLON
+colon:; semicolon
+period.; semicolon
+semicolon; semicolon
+exclamation!; semicolon
+question?; semicolon
+comma,; semicolon
+
+ENDING IN EXCLAMATION
+colon! exclamation
+period.! exclamation
+semicolon! exclamation
+exclamation! exclamation
+question?! exclamation
+comma,! exclamation
+
+ENDING IN QUESTION
+colon? question
+period.? question
+semicolon? question
+exclamation!? question
+question? question
+comma,? question
+
+ENDING IN COMMA
+colon:, comma
+period., comma
+semicolon;, comma
+exclamation!, comma
+question?, comma
+comma, comma
+
+Got:
+ENDING IN COLON
+colon:: colon
+period.: colon
+semicolon;: colon
+exclamation!: colon
+question?: colon
+comma,: colon
+ENDING IN PERIOD
+colon:. period
+period.. period
+semicolon;. period
+exclamation!. period
+question?. period
+comma,. period
+ENDING IN SEMICOLON
+colon:; semicolon
+period.; semicolon
+semicolon;; semicolon
+exclamation!; semicolon
+question?; semicolon
+comma,; semicolon
+ENDING IN EXCLAMATION
+colon:! exclamation
+period.! exclamation
+semicolon;! exclamation
+exclamation!! exclamation
+question?! exclamation
+comma,! exclamation
+ENDING IN QUESTION
+colon:? question
+period.? question
+semicolon;? question
+exclamation!? question
+question?? question
+comma,? question
+ENDING IN COMMA
+colon:, comma
+period., comma
+semicolon;, comma
+exclamation!, comma
+question?, comma
+comma,, comma
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_FullMontyPlain.txt failed
+Expected:
+ENDING IN COLON
+colon: colon
+period.: colon
+semicolon; colon
+exclamation! colon
+question? colon
+comma,: colon
+
+ENDING IN PERIOD
+colon: period
+period. period
+semicolon; period
+exclamation! period
+question? period
+comma,. period
+
+ENDING IN SEMICOLON
+colon:; semicolon
+period.; semicolon
+semicolon; semicolon
+exclamation!; semicolon
+question?; semicolon
+comma,; semicolon
+
+ENDING IN EXCLAMATION
+colon! exclamation
+period.! exclamation
+semicolon! exclamation
+exclamation! exclamation
+question?! exclamation
+comma,! exclamation
+
+ENDING IN QUESTION
+colon? question
+period.? question
+semicolon? question
+exclamation!? question
+question? question
+comma,? question
+
+ENDING IN COMMA
+colon:, comma
+period., comma
+semicolon;, comma
+exclamation!, comma
+question?, comma
+comma, comma
+
+Got:
+ENDING IN COLON
+colon:: colon
+period.: colon
+semicolon;: colon
+exclamation!: colon
+question?: colon
+comma,: colon
+ENDING IN PERIOD
+colon:. period
+period.. period
+semicolon;. period
+exclamation!. period
+question?. period
+comma,. period
+ENDING IN SEMICOLON
+colon:; semicolon
+period.; semicolon
+semicolon;; semicolon
+exclamation!; semicolon
+question?; semicolon
+comma,; semicolon
+ENDING IN EXCLAMATION
+colon:! exclamation
+period.! exclamation
+semicolon;! exclamation
+exclamation!! exclamation
+question?! exclamation
+comma,! exclamation
+ENDING IN QUESTION
+colon:? question
+period.? question
+semicolon;? question
+exclamation!? question
+question?? question
+comma,? question
+ENDING IN COMMA
+colon:, comma
+period., comma
+semicolon;, comma
+exclamation!, comma
+question?, comma
+comma,, comma
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_FullMontyQuotesIn.txt failed
+Expected:
+ENDING IN COLON
+“colon”: colon
+“period.”: colon
+“semicolon”; colon
+“exclamation!” colon
+“question?” colon
+“comma,”: colon
+
+ENDING IN PERIOD
+“colon”: period
+“period.” period
+“semicolon”; period
+“exclamation!” period
+“question?” period
+“comma,.” period
+
+ENDING IN SEMICOLON
+“colon”:; semicolon
+“period.”; semicolon
+“semicolon”; semicolon
+“exclamation!”; semicolon
+“question?”; semicolon
+“comma,”; semicolon
+
+ENDING IN EXCLAMATION
+“colon!” exclamation
+“period.!” exclamation
+“semicolon!” exclamation
+“exclamation!” exclamation
+“question?!” exclamation
+“comma,!” exclamation
+
+ENDING IN QUESTION
+“colon?” question
+“period.?” question
+“semicolon?” question
+“exclamation!?” question
+“question?” question
+“comma,?” question
+
+ENDING IN COMMA
+“colon”:, comma
+“period.,” comma
+“semicolon”;, comma
+“exclamation!,” comma
+“question?,” comma
+“comma,” comma
+
+Got:
+ENDING IN COLON
+“colon”:: colon
+“period.”: colon
+“semicolon;”: colon
+“exclamation!”: colon
+“question?”: colon
+“comma,”: colon
+ENDING IN PERIOD
+“colon”:. period
+“period.”. period
+“semicolon;”. period
+“exclamation!”. period
+“question?”. period
+“comma,”. period
+ENDING IN SEMICOLON
+“colon”:; semicolon
+“period.”; semicolon
+“semicolon;”; semicolon
+“exclamation!”; semicolon
+“question?”; semicolon
+“comma,”; semicolon
+ENDING IN EXCLAMATION
+“colon”:! exclamation
+“period.”! exclamation
+“semicolon;”! exclamation
+“exclamation!”! exclamation
+“question?”! exclamation
+“comma,”! exclamation
+ENDING IN QUESTION
+“colon”:? question
+“period.”? question
+“semicolon;”? question
+“exclamation!”? question
+“question?”? question
+“comma,”? question
+ENDING IN COMMA
+“colon”:, comma
+“period.”, comma
+“semicolon;”, comma
+“exclamation!”, comma
+“question?”, comma
+“comma,”, comma
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_FullMontyQuotesOut.txt failed
+Expected:
+ENDING IN COLON
+“colon”: colon
+“period”.: colon
+“semicolon”; colon
+“exclamation”! colon
+“question”? colon
+“comma”,: colon
+
+ENDING IN PERIOD
+“colon”: period
+“period”. period
+“semicolon”; period
+“exclamation”! period
+“question”? period
+“comma”,. period
+
+ENDING IN SEMICOLON
+“colon”:; semicolon
+“period”.; semicolon
+“semicolon”; semicolon
+“exclamation”!; semicolon
+“question”?; semicolon
+“comma”,; semicolon
+
+ENDING IN EXCLAMATION
+“colon”! exclamation
+“period”.! exclamation
+“semicolon”! exclamation
+“exclamation”! exclamation
+“question”?! exclamation
+“comma”,! exclamation
+
+ENDING IN QUESTION
+“colon”? question
+“period”.? question
+“semicolon”? question
+“exclamation”!? question
+“question”? question
+“comma”,? question
+
+ENDING IN COMMA
+“colon”:, comma
+“period”., comma
+“semicolon”;, comma
+“exclamation”!, comma
+“question”?, comma
+“comma”, comma
+
+Got:
+ENDING IN COLON
+“colon”:: colon
+“period”.: colon
+“semicolon”;: colon
+“exclamation”!: colon
+“question”?: colon
+“comma”,: colon
+ENDING IN PERIOD
+“colon”:. period
+“period”.. period
+“semicolon”;. period
+“exclamation”!. period
+“question”?. period
+“comma”,. period
+ENDING IN SEMICOLON
+“colon”:; semicolon
+“period”.; semicolon
+“semicolon”;; semicolon
+“exclamation”!; semicolon
+“question”?; semicolon
+“comma”,; semicolon
+ENDING IN EXCLAMATION
+“colon”:! exclamation
+“period”.! exclamation
+“semicolon”;! exclamation
+“exclamation”!! exclamation
+“question”?! exclamation
+“comma”,! exclamation
+ENDING IN QUESTION
+“colon”:? question
+“period”.? question
+“semicolon”;? question
+“exclamation”!? question
+“question”?? question
+“comma”,? question
+ENDING IN COMMA
+“colon”:, comma
+“period”., comma
+“semicolon”;, comma
+“exclamation”!, comma
+“question”?, comma
+“comma”,, comma
+
+Test target/haya-cache\test-suite\processor-tests/humans/punctuation_OnMacro.txt failed
+Expected:
+“My Title.” My Publisher
+
+Got:
+“My Title”. My Publisher
+
+Test target/haya-cache\test-suite\processor-tests/humans/quotes_PunctuationWithInnerQuote.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">“This is ‘The One.’”</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">“This is 'The One'.”</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/quotes_QuotesUnderQuotesFalse.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry"> 'Title with ‘quotes’ in it',.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"> 'Title with "quotes" in it',.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/simplespace_case1.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe, J., 1992. In <i>Some title</i>. Vintage, pp. 250–300.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe, J., 1992. In <i>Some title.</i>  Vintage, pp. 250–300.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_AguStyleReverseGroups.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Smith, A., L. Roberts, and T. Jones (1993)</div>
+  <div class="csl-entry">Smith, A., T. Jones, and L. Roberts (1997)</div>
+  <div class="csl-entry">Smith, A. and C. Allen (2000)</div>
+  <div class="csl-entry">Smith, A. and B. Frank (1995)</div>
+  <div class="csl-entry">Smith, A. and B. Frank (1997)</div>
+  <div class="csl-entry">Smith, A. (1989a)</div>
+  <div class="csl-entry">Smith, A. (1989b)</div>
+  <div class="csl-entry">Smith, A. (1991)</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Smith, A. (1989a)</div><div class="csl-entry">Smith, A. (1989b)</div><div class="csl-entry">Smith, A. (1991)</div><div class="csl-entry">Smith, A., L. Roberts, and T. Jones (1993)</div><div class="csl-entry">Smith, A., T. Jones, and L. Roberts (1997)</div><div class="csl-entry">Smith, A. and C. Allen (2000)</div><div class="csl-entry">Smith, A. and B. Frank (1995)</div><div class="csl-entry">Smith, A. and B. Frank (1997)</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_ChangeInNameSort.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Carter</div>
+  <div class="csl-entry">De Quincey</div>
+  <div class="csl-entry">Noakes</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Carter</div><div class="csl-entry">Noakes</div><div class="csl-entry">De Quincey</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_ChicagoYearSuffix1.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Beijing Zoo. 1974a. Observations on the breeding of the giant panda and the raising of its young [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 154–61.</div>
+  <div class="csl-entry">---. 1974b. On the diseases of the giant panda and their preventive and curative measures [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 139–47.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Beijing Zoo. 1974a. Observations on the breeding of the giant panda and the raising of its young [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 154–61.</div><div class="csl-entry">Beijing Zoo. 1974b. On the diseases of the giant panda and their preventive and curative measures [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 139–47.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_ChicagoYearSuffix2.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Beijing Zoo. 1974a. Observations on the breeding of the giant panda and the raising of its young [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 154–61.</div>
+  <div class="csl-entry">---. 1974b. On the diseases of the giant panda and their preventive and curative measures [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 139–47.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Beijing Zoo. 1974b. Observations on the breeding of the giant panda and the raising of its young [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 154–61.</div><div class="csl-entry">Beijing Zoo. 1974a. On the diseases of the giant panda and their preventive and curative measures [in Chinese]. <i>Acta Zoologica Sinica</i> 20: 139–47.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_ConditionalMacroDates.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Title 3</div>
+  <div class="csl-entry">Title 1</div>
+  <div class="csl-entry">Title 2</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Title 1</div><div class="csl-entry">Title 2</div><div class="csl-entry">Title 3</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_DropNameLabelInSort.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe, John ed. <i>Hello</i>.</div>
+  <div class="csl-entry">---. <i>Hello</i>.</div>
+  <div class="csl-entry">Doe, John Eamon. <i>Hello</i>.</div>
+  <div class="csl-entry">Doe, John Egbert. <i>Hello</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe, John ed. <i>Hello</i>.</div><div class="csl-entry">Doe, John. <i>Hello</i>.</div><div class="csl-entry">Doe, John Eamon. <i>Hello</i>.</div><div class="csl-entry">Doe, John Egbert. <i>Hello</i>.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_LeadingA.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">“A er det første bogstav i alfabetet”. Television broadcast. DR, 2011.</div>
+  <div class="csl-entry">A Hansen, Martin. <i>Alfabetiseringsproblemer</i>. København: Gyldendal, 2012.</div>
+  <div class="csl-entry">A kasernes fællesvirke. <i>Problemer med alfabetet</i>. Kbh: Dafolo, 2015.</div>
+  <div class="csl-entry">Ab Delrahman, Hussein. <i>Det danske alfabet er sært</i>. Kbh: Politiken, 2012.</div>
+  <div class="csl-entry">B Gjengen. <i>Alfabeta</i>. Kbh, 2009.</div>
+  <div class="csl-entry">Juul Jensen, Uffe, Carsten Hædersdal, og Mogens Kim Skadborg. “Etablering af klinisk etiske komitéer i Danmark: en praksis-filosofisk tilgang til klinisk etik fra bibliotek.dk”. <i>Bibliotek for læger</i> 206, nr. 1 (2014): 44–61.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">, A kasernes fællesvirke. <i>Problemer med alfabetet</i>. Kbh: Dafolo, 2015.</div><div class="csl-entry">A Hansen, Martin. <i>Alfabetiseringsproblemer</i>. København: Gyldendal, 2012.</div><div class="csl-entry">Ab Delrahman, Hussein. <i>Det danske alfabet er sært</i>. Kbh: Politiken, 2012.</div><div class="csl-entry">B Gjengen,. <i>Alfabeta</i>. Kbh, 2009.</div><div class="csl-entry">Juul Jensen, Uffe, Carsten Hædersdal, og Mogens Kim Skadborg. “Etablering af klinisk etiske komitéer i Danmark: en praksis-filosofisk tilgang til klinisk etik fra bibliotek.dk”. <i>Bibliotek for læger</i> 206, nr. 1 (2014): 44–61.</div><div class="csl-entry">“A er det første bogstav i alfabetet”. Television broadcast. DR, 2011.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_LeadingApostropheOnNameParticle.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">d’Wander, W</div>
+  <div class="csl-entry">de’ Frinkle, B</div>
+  <div class="csl-entry">in ’t Horvath, P A B</div>
+  <div class="csl-entry">in ’t Horvath, P A D</div>
+  <div class="csl-entry">Klabdaggit, M</div>
+  <div class="csl-entry">’t Horvath, P A A</div>
+  <div class="csl-entry">’t Horvath, P A C</div>
+  <div class="csl-entry">Vooz, B</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">'t Horvath, P A</div><div class="csl-entry">'t Horvath, P A</div><div class="csl-entry">'t Horvath, P A in</div><div class="csl-entry">'t Horvath, P A in</div><div class="csl-entry">d'Wander, W</div><div class="csl-entry">Frinkle, B de'</div><div class="csl-entry">Klabdaggit, M</div><div class="csl-entry">Vooz, B</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_NameVariable.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">John Doe</div>
+  <div class="csl-entry">Jacob [F]linders</div>
+  <div class="csl-entry">Jane Roe</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Jacob [F]linders</div><div class="csl-entry">John Doe</div><div class="csl-entry">Jane Roe</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_OmittedBibRefMixedNumericStyle.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">1. Anderson, Book One</div>
+  <div class="csl-entry">2. [CSL STYLE ERROR: reference with no printed form.]</div>
+  <div class="csl-entry">3. Crane, Book Two</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">1. Anderson, Book One</div><div class="csl-entry"></div><div class="csl-entry">3. Crane, Book Two</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_OmittedBibRefNonNumericStyle.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Anderson, Book One</div>
+  <div class="csl-entry">Crane, Book Two</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Anderson, Book One</div><div class="csl-entry"></div><div class="csl-entry">Crane, Book Two</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_Quotes.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Simple title, here A</div>
+  <div class="csl-entry">“Simple title here B”</div>
+  <div class="csl-entry">Simple “title” here C</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Simple 'title' here C</div><div class="csl-entry">Simple title, here A</div><div class="csl-entry">“Simple title here B”</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_SeparateAuthorsAndOthers.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe, John. <i>Hello 4</i>.</div>
+  <div class="csl-entry">--- ed. <i>Hello 1</i>.</div>
+  <div class="csl-entry">Doe, John Barbitol. <i>Hello 2</i>.</div>
+  <div class="csl-entry">Doe, John Egbert. <i>Hello 3</i>.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe, John. <i>Hello 4</i>.</div><div class="csl-entry">Doe, John ed. <i>Hello 1</i>.</div><div class="csl-entry">Doe, John Barbitol. <i>Hello 2</i>.</div><div class="csl-entry">Doe, John Egbert. <i>Hello 3</i>.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_SubstituteTitle.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Brooker, C. (2011, July 24). The news coverage of the Norway mass-killings was fact-free conjecture. <i>The Guardian</i>. London. Retrieved from http://www.guardian.co.uk/commentisfree/2011/jul/24/charlie-brooker-norway-mass-killings</div>
+  <div class="csl-entry">Brooker, C. (2011, July 31). Let’s think outside the box here: maybe blue-sky thinking is nonsense. <i>The Guardian</i>. London. Retrieved from http://www.guardian.co.uk/commentisfree/2011/jul/31/blue-sky-thinking</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Brooker, C. (2011, July 24). The news coverage of the Norway mass-killings was fact-free conjecture. <i>The Guardian</i>. London. Retrieved from http://www.guardian.co.uk/commentisfree/2011/jul/24/charlie-brooker-norway-mass-killings</div><div class="csl-entry">Brooker, C. (2011, July 31). Let's think outside the box here: maybe blue-sky thinking is nonsense. <i>The Guardian</i>. London. Retrieved from http://www.guardian.co.uk/commentisfree/2011/jul/31/blue-sky-thinking</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_VariousNameMacros1.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i> <b>1,</b> 1–2.</div>
+  <div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i> <b>3,</b> 3–4.</div>
+  <div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i> <b>2,</b> 1–2.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i><b> </b><b>1,</b><b> </b>1–2.</div><div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i><b> </b><b>3,</b><b> </b>3–4.</div><div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i><b> </b><b>2,</b><b> </b>1–2.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_VariousNameMacros2.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i> <b>3,</b> 3–4.</div>
+  <div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i> <b>2,</b> 1–2.</div>
+  <div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i> <b>1,</b> 1–2.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i><b> </b><b>3,</b><b> </b>3–4.</div><div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i><b> </b><b>2,</b><b> </b>1–2.</div><div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i><b> </b><b>1,</b><b> </b>1–2.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/sort_VariousNameMacros3.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i> <b>3,</b> 3–4.</div>
+  <div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i> <b>1,</b> 1–2.</div>
+  <div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i> <b>2,</b> 1–2.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Doe John A. & Bloggs Joe A. (2011). Title 3. <i>Test</i><b> </b><b>3,</b><b> </b>3–4.</div><div class="csl-entry">Doe Jane B. & Doe John A. (2009). Title 1. <i>Test</i><b> </b><b>1,</b><b> </b>1–2.</div><div class="csl-entry">Doe John A. & Smith John A. (2010). Title 2. <i>Test</i><b> </b><b>2,</b><b> </b>1–2.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/substitute_SharedMacro.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Alan Alto Inc.: Book Three.</div>
+  <div class="csl-entry">---: Book Four.</div>
+  <div class="csl-entry">Alto, Alan: Book One.</div>
+  <div class="csl-entry">---: Book Two.</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Alan Alto Inc.: Book Three.</div><div class="csl-entry">Alan Alto Inc.: Book Four.</div><div class="csl-entry">Alto, Alan: Book One.</div><div class="csl-entry">Alto, Alan: Book Two.</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/substitute_SubstituteOnlyOnceTermEmpty.txt failed
+Expected:
+Content:
+
+Got:
+Content: Author Term Value
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_InQuotes.txt failed
+Expected:
+From “Distance” to “Friction”: Substituting Metaphors and Redirecting Intercultural Research For
+
+Got:
+From "Distance" to "Friction": Substituting Metaphors and Redirecting Intercultural Research for
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_LastChar.txt failed
+Expected:
+07-x
+07-x Test
+
+Got:
+07-X
+07-X Test
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_LocaleUnicode.txt failed
+Expected:
+IA AND IB EN
+IA AND IB EN
+İC AND ID TR
+BAD LANGUAGE CODE THAT PASSES IN NODE.JS BUT FAILS IN SOME BROWSERS
+
+Got:
+IA AND IB EN
+IA AND IB EN
+IC AND ID TR
+BAD LANGUAGE CODE THAT PASSES IN NODE.JS BUT FAILS IN SOME BROWSERS
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_NonEnglishChars.txt failed
+Expected:
+Saline Solution of β-Carotine
+Saline Solution of Beta-Carotine
+
+Got:
+Saline Solution of Β-Carotine
+Saline Solution of Beta-Carotine
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_NoSpaceBeforeApostrophe.txt failed
+Expected:
+Marcus Shafi’i (ed.), Response to Shafi’i Comment
+Marcus Shafi`i (ed.), Response to Shafi`i Comment
+
+Got:
+Marcus Shafi'i (ed.), Response to Shafi'i Comment
+Marcus Shafi`i (ed.), Response to Shafi`i Comment
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_RepeatedTitleBug.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">Jenrich, R. I., & Bentler, P. M. (2012). Exploratory bi-factor analysis: The oblique case. <i>Psychometrika</i>, <i>77</i>(3), 442–454. https://doi.org/https://doi.org/10.1007/s11336-012-9269-1</div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry">Jenrich, R., & Bentler, P.  (2012). Exploratory bi-factor analysis: The oblique case. <i>Psychometrika</i>, <i>77</i>(3), 442–454. https://doi.org/https://doi.org/10.1007/s11336-012-9269-1</div></div>
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_SkipNameParticlesInTitleCase.txt failed
+Expected:
+John von Doe: An about up Life; John van Doe? A Life; John d’Doe! A Life; John de Doe a Life
+
+Got:
+John Von Doe: An About up Life; John Van Doe? A Life; John D'doe! A Life; John De Doe a Life
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_TitleCaseWithCleverBrandName.txt failed
+Expected:
+iPad Is a Thing
+
+Got:
+Ipad Is a Thing
+
+Test target/haya-cache\test-suite\processor-tests/humans/textcase_TitleWithEmDash.txt failed
+Expected:
+Relationship of Core Self-Evaluation Traits—Self-Esteem, Generalized Self-Efficacy, Locus of Control, and Emotional Stability—with Job Satisfaction and Job Performance: A Meta-Analysis
+
+Got:
+Relationship of Core Self-Evaluation Traits—Self-Esteem, Generalized Self-Efficacy, Locus of Control, And Emotional Stability—with Job Satisfaction and Job Performance: A Meta-Analysis
+
+Test target/haya-cache\test-suite\processor-tests/humans/variables_ContainerTitleShort.txt failed
+Expected:
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">1. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. In: Container: a title. (Series: a title).</div>
+   </div>
+  <div class="csl-entry">
+    <div class="csl-left-margin">2. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. Container.</div>
+   </div>
+</div>
+
+Got:
+<div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">1. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. In: Container: a title. (Series: a title). </div></div><div class="csl-entry"><div class="csl-left-margin">2. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. Container: a title. </div></div></div>
+
+Total: 841, skipped: 149, passed: 487
+70.38% passed
+🤨 Test affix_TextNodeWithMacros should pass but was not found
+
+thread 'test_parse_tests' (20428) panicked at tests\citeproc.rs:351:9:
+Some tests that should pass failed or were not found
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    test_parse_tests
+
+test result: FAILED. 5 passed; 1 failed; 2 ignored; 0 measured; 0 filtered out; finished in 9.96s
+
