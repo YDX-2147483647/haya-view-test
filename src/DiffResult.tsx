@@ -4,8 +4,10 @@ import { asTitle, type TestResult } from "./cargo.ts";
 
 export default function DiffResult({
   result: { path, expected, got },
+  comment,
 }: {
   result: TestResult;
+  comment?: string | null;
 }): JSX.Element {
   const diff = diffWordsWithSpace(
     got.trim(),
@@ -22,10 +24,14 @@ export default function DiffResult({
 
   return (
     <details className="my-4 prose">
-      <summary className="font-bold">{asTitle(path)}</summary>
+      <summary className="font-bold">
+        {asTitle(path)}
+        {comment && <span className="font-medium"> (with comment)</span>}
+      </summary>
       <p>
         Test <code>{path}</code> failed.
       </p>
+      {comment && <blockquote>{comment}</blockquote>}
       {/* .wrap-break-word is necessary for long URL, DOI, etc. */}
       <pre className="wrap-break-word whitespace-pre-wrap">
         {diff.map((part) => {
