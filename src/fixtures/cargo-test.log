@@ -1,84 +1,9 @@
-
-running 54 tests
-test csl::tests::low_year_test ... ok
-test interop::tests::auto_genre_for_phd_masters_techreport ... ok
-test csl::tests::issue_48 ... ok
-test csl::tests::test_transparent_locator_ibid ... ok
-test interop::tests::issue_266 ... ok
-test csl::tests::test_alphanumeric_disambiguation ... ok
-test interop::tests::issue_357 ... ok
-test csl::tests::ibid_handling_with_deutsche_sprache_csl ... ok
-test lang::tests::fold_words ... ok
-test interop::tests::language_conversion ... ok
-test lang::tests::fold_char_class ... ok
-test lang::tests::online ... ok
-test lang::tests::sentence_case ... ok
-test interop::tests::test_pmid_from_biblatex ... ok
-test lang::tests::sentence_case_dictionary ... ok
-test lang::tests::sentence_case_char_segmentation ... ok
-test lang::tests::sentence_case_edge_cases ... ok
-test lang::tests::sentence_case_no_transform ... ok
-test lang::tests::title_case_edge_cases ... ok
-test lang::tests::title_case_char_segmentation ... ok
-test lang::tests::sentence_case_name_detection ... ok
-test lang::tests::title_case_full_stop_handling ... ok
-test lang::tests::title_case_hyphens ... ok
-test lang::tests::title_case_last_word ... ok
-test lang::tests::title_case_name_detection ... ok
-test lang::tests::title_case_verbatim ... ok
-test lang::tests::title_case_punctuation ... ok
-test lang::tests::title_case_word_length ... ok
-test selectors::parser::tests::test_parse ... ok
-test selectors::parser::tests::test_tokenize ... ok
-test selectors::parser::tests::test_parse_errors ... ok
-test csl::tests::test_chapter_field ... ok
-test tests::test_troublesome_page_ranges ... ok
-test types::numeric::test::test_mixed_range ... ok
-test types::page::test::nonnumeric_page ... ok
-test types::persons::tests::person_initials ... ok
-test types::persons::tests::person_middle_initial ... ok
-test types::persons::tests::person_name_retrieval_order ... ok
-test types::persons::tests::person_non_dropping_initials ... ok
-test types::strings::tests::escaped_brace ... ok
-test types::strings::tests::escaped_dollar ... ok
-test types::strings::tests::normal_backslash ... ok
-test types::tests::parse_num ... ok
-test types::tests::test_issue_227 ... ok
-test types::time::tests::test_duration_parse ... ok
-test types::time::tests::test_duration_range_parse ... ok
-test types::page::test::group_by ... ok
-test types::strings::tests::escaped_backslash ... ok
-test types::tests::test_preserve_space_separator ... ok
-test tests::selector_bindings ... ok
-test tests::selectors ... ok
-test csl::tests::test_csl ... ok
-test io::tests::roundtrip ... ok
-test csl::tests::issue_243 ... ok
-
-test result: ok. 54 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
-
-
-running 2 tests
-test always_archive ... ignored
-test no_dupe_id ... ok
-
-test result: ok. 1 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
-
-
-running 8 tests
-test test_single_file ... ignored
-test write_passing ... ignored
-test case_folding ... ok
-test no_author ... ok
-test purposes ... ok
-test access_date ... ok
-test test_local_files ... ok
-Already up to date.
-test test_parse_tests ... FAILED
-
-failures:
-
----- test_parse_tests stdout ----
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.57s
+     Running unittests src\lib.rs (target\debug\deps\hayagriva-65758f4182ef525f.exe)
+     Running tests\archiver.rs (target\debug\deps\archiver-afc2f05400e66e31.exe)
+     Running tests\citeproc.rs (target\debug\deps\citeproc-c5adf57b1e2f8543.exe)
+From ssh://github.com/citation-style-language/test-suite
+ * branch            master     -> FETCH_HEAD
 Test target/haya-cache\test-suite\processor-tests/humans/bugreports_AllCapsLeakage.txt failed
 Expected:
 <div class="csl-bib-body">
@@ -1525,6 +1450,20 @@ Albert Asthma et al. (eds.), Albert Asthma et al. (trans.)
 Got:
 Albert Asthma et al. (eds..), Albert Asthma et al. (trans..)
 
+Test target/haya-cache\test-suite\processor-tests/humans/number_LeadingZeros.txt failed
+Expected:
+01790 (is-numeric)
+
+Got:
+1790 (non-numeric)
+
+Test target/haya-cache\test-suite\processor-tests/humans/number_MixedText.txt failed
+Expected:
+5 ed.; 5 edition
+
+Got:
+5ed.; 5edition
+
 Test target/haya-cache\test-suite\processor-tests/humans/number_PlainHyphenOrEnDashAlwaysPlural.txt failed
 Expected:
 His Anonymous Life (1) pages 1–2 (cs:text) vs His Anonymous Life (1) pages 1–2 (cs:number); His Anonymous Life (2) pages i–ix (cs:text) vs His Anonymous Life (2) pages i–ix (cs:number); His Anonymous Life (3) page 3-B (cs:text) vs His Anonymous Life (3) page 3-B (cs:number); His Anonymous Life (4) page Michaelson-Morely (cs:text) vs His Anonymous Life (4) page Michaelson-Morely (cs:number)
@@ -1539,7 +1478,7 @@ Example T, at n11564–68
 Example U, at n11564-1568
 
 Got:
-Example S, at 8n11564–8n1568
+Example S, at 8n11564–68
 Example T, at n11564–68
 Example U, at n11564–1568
 
@@ -1560,16 +1499,16 @@ Example: prefix on first number only, at N110–5
 Example: same prefix on both numbers, at N110–N115
 Example: prefix on last number only, at 110–N6
 Example: different prefixes on both numbers, at N110–P5
-Example: leading number before prefix, at 123N110 – N5
-Example: multiple ranges, at 123N110 – N5, 456K200 – 99
-Example: first less than second, at 123N110 – N5, 000c23 – 22
+Example: leading number before prefix, at 123N110–N5
+Example: multiple ranges, at 123N110–N5, 456K200–99
+Example: first less than second, at 123N110–N5, 0c23–22
 
 Test target/haya-cache\test-suite\processor-tests/humans/page_ExpandWeirdComposite.txt failed
 Expected:
 Example: weird composite, at 123N110-N5, 456K200-99
 
 Got:
-Example: weird composite, at 123N110 – N5, 456K200 – 99
+Example: weird composite, at 123N110–N5, 456K200–99
 
 Test target/haya-cache\test-suite\processor-tests/humans/page_Minimal.txt failed
 Expected:
@@ -2390,17 +2329,6 @@ Expected:
 Got:
 <div class="csl-bib-body"><div class="csl-entry"><div class="csl-left-margin">1. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. In: Container: a title. (Series: a title). </div></div><div class="csl-entry"><div class="csl-left-margin">2. </div><div class="csl-right-inline">Campbell DT, Fiske DW. Main title. Container: a title. </div></div></div>
 
-Total: 841, skipped: 149, passed: 487
-70.38% passed
-🤨 Test affix_TextNodeWithMacros should pass but was not found
-
-thread 'test_parse_tests' (20428) panicked at tests\citeproc.rs:351:9:
-Some tests that should pass failed or were not found
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    test_parse_tests
-
-test result: FAILED. 5 passed; 1 failed; 2 ignored; 0 measured; 0 filtered out; finished in 9.96s
-
+Total: 841, skipped: 149, passed: 485
+70.09% passed
+✅ All tests expected to pass passed

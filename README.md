@@ -3,7 +3,7 @@
 View [Hayagriva](https://github.com/typst/hayagriva)'s result against the [CSL Test Suite](https://github.com/citation-style-language/test-suite).
 
 ```shell
-cargo test --features csl-json test_parse_tests --message-format json -- --nocapture > cargo-test.log
+cargo test --features csl-json test_parse_tests -- --no-capture 2> cargo-test.log
 ```
 
 **Usage:** Run the above command in your `hayagriva` repo, and paste `cargo-test.log` to the website.

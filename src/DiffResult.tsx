@@ -1,26 +1,33 @@
-import type { JSX } from "react";
 import { diffWordsWithSpace } from "diff";
+import type { JSX } from "react";
+import { asTitle, type TestResult } from "./cargo.ts";
 
 export default function DiffResult({
-  title,
-  expected,
-  got,
+  result: { path, expected, got },
 }: {
-  title: string;
-  expected: string;
-  got: string;
+  result: TestResult;
 }): JSX.Element {
-  // Increase the spacing because we will set .whitespace-pre-wrap
   const diff = diffWordsWithSpace(
-    got.trim().replaceAll("\n", "\n\n"),
-    expected.trim().replaceAll("\n", "\n\n"),
+    got.trim(),
+    // Remove indentation from original result to match our own output,
+    // which is not indented or pretty-printed. It appears that
+    // citeproc test results simply indent elements with two spaces at
+    // the start when the line gets too long, or for each inner bib
+    // entry.
+    // https://github.com/typst/hayagriva/blob/a137441413a5907c15ced44d1502dfb9fa1a3014/tests/citeproc.rs#L616-L623
+    expected
+      .trim()
+      .replace(/\n\s*/g, ""),
   );
 
   return (
-    <details className="pb-8">
-      <summary className="font-bold">{title}</summary>
+    <details className="my-4 prose">
+      <summary className="font-bold">{asTitle(path)}</summary>
+      <p>
+        Test <code>{path}</code> failed.
+      </p>
       {/* .wrap-break-word is necessary for long URL, DOI, etc. */}
-      <pre className="prose wrap-break-word whitespace-pre-wrap">
+      <pre className="wrap-break-word whitespace-pre-wrap">
         {diff.map((part) => {
           /* eslint-disable react-x/no-missing-key */
           if (part.added) {

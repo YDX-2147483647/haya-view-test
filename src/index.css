@@ -8,7 +8,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --bg-color: #242424;
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,9 +29,15 @@ a:hover {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    --bg-color: #ffffff;
   }
   a:hover {
     color: #747bff;
   }
+}
+
+.prose {
+  /* Replace the dark theme with a light one */
+  --tw-prose-pre-bg: oklch(96.639% 0.0011 202.634);
+  --tw-prose-pre-code: oklch(27.8% 0.033 256.848);
 }
