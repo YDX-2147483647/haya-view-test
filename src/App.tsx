@@ -1,15 +1,22 @@
-import { useState } from "react";
 import { asTitle, CARGO_LOG_PLACEHOLDER, parseCargoLog } from "./cargo.ts";
 import DiffResult from "./DiffResult.tsx";
 import exampleCargoLog from "./fixtures/cargo-test.log?raw";
 import { tracking } from "./tracking_issue.ts";
+import { useLocalStorage } from "./util.ts";
 
 // git log -1 --format='%h %ad' --date=iso-strict
 const MAIN_BRANCH_INFO = "a137441 2025-12-27T22:30:59Z";
+const storage = (key: string): string => `haya-view-test:${key}`;
 
 function App() {
-  const [cargoLog, setCargoLog] = useState("");
-  const [filter, setFilter] = useState("");
+  const [cargoLog, setCargoLog, _resetCargoLog] = useLocalStorage(
+    storage("cargo-test.log"),
+    "",
+  );
+  const [filter, setFilter, _resetFilter] = useLocalStorage(
+    storage("filter"),
+    "",
+  );
   const results = parseCargoLog(cargoLog || exampleCargoLog);
   const filteredResults = results.filter((result) =>
     asTitle(result.path).toLowerCase().includes(filter.toLowerCase()),
