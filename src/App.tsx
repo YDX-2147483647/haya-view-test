@@ -29,6 +29,14 @@ function App() {
           haya-view-test
         </a>
       </h1>
+      <p>
+        View <a href="https://github.com/typst/hayagriva">Hayagriva</a>'s result
+        against the{" "}
+        <a href="https://github.com/citation-style-language/test-suite">
+          CSL Test Suite
+        </a>
+        .
+      </p>{" "}
       <pre>
         <code>
           {
@@ -38,8 +46,8 @@ function App() {
       </pre>
       <label>
         <p>
-          Run the above command in your <code>typst/hayagriva</code> repo, and
-          paste <code>cargo-test.log</code> below.
+          Run the above command in your <code>hayagriva</code> repo, and paste{" "}
+          <code>cargo-test.log</code> below.
         </p>
         <textarea
           className="h-24 w-full rounded border border-gray-300 p-2"
@@ -67,7 +75,6 @@ function App() {
           <code>{"--no-capture"}</code> to let cargo print them directly.
         </p>
       )}
-
       {!cargoLog && (
         <p>
           <strong className="text-blue-500">Note:</strong> No{" "}
