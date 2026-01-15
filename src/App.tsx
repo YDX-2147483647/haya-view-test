@@ -24,7 +24,11 @@ function App() {
 
   return (
     <main className="prose dark:prose-invert mx-auto px-4 py-8">
-      <h1 className="text-center">haya-view-test</h1>
+      <h1 className="text-center">
+        <a href="https://github.com/YDX-2147483647/haya-view-test">
+          haya-view-test
+        </a>
+      </h1>
       <pre>
         <code>
           {
