@@ -3,8 +3,9 @@ import { asTitle, parseCargoLog } from "./cargo.ts";
 import cargoTestLog from "./fixtures/cargo-test.log?raw";
 
 describe("parseCargoLog", () => {
+  const results = parseCargoLog(cargoTestLog);
+
   it("should parse the cargo test log correctly", () => {
-    const results = parseCargoLog(cargoTestLog);
     expect(results.length).toBeGreaterThan(0);
     // Check first one
     const first = results[0];
@@ -13,6 +14,11 @@ describe("parseCargoLog", () => {
     );
     expect(first.expected).toContain('<div class="csl-bib-body">');
     expect(first.got).toContain('<div class="csl-bib-body">');
+  });
+
+  it("should not parse summary lines as a test result", () => {
+    const last = results[results.length - 1];
+    expect(last.got).not.toMatch(/Total: \d+, skipped: \d+, passed: \d+/);
   });
 });
 
