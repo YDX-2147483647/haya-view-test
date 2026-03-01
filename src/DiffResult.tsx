@@ -24,9 +24,7 @@ export default function DiffResult({
     // the start when the line gets too long, or for each inner bib
     // entry.
     // https://github.com/typst/hayagriva/blob/a137441413a5907c15ced44d1502dfb9fa1a3014/tests/citeproc.rs#L616-L623
-    expected
-      .trim()
-      .replace(/\n\s*/g, ""),
+    expected.trim().replace(/\n\s*/g, ""),
   );
 
   const url = path.startsWith(TEST_SUITE)
