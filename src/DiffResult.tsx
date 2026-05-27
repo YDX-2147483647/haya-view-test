@@ -40,7 +40,7 @@ export default function DiffResult({
       <p>
         Test{" "}
         {url ? (
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noopener">
             <code>{path}</code>
           </a>
         ) : (
