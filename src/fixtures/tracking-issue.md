@@ -1,5 +1,5 @@
 ---
-updatedAt: 2025-11-14T14:04:27Z
+updatedAt: 2026-05-26T21:52:37Z
 ---
 This issue tracks all the citeproc tests Hayagriva does support in principle (they have no unsupported features like date ranges) but which do not yet pass.
 
@@ -79,7 +79,7 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
   - Passes in #390
 - [ ] date_String
   - We don't support `raw` in dates.
-- [ ] date_Uncertain
+- [x] date_Uncertain
   - Passes in #396
 - [ ] date_VariousInvalidDates
   - *Very strange*: We accept some dates we shouldn't (e.g., w/ negative month); but citeproc treats a month > 12 as a season: The season is the month - 12. I don't know why
@@ -99,9 +99,9 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 ## Disambiguate
 
-- [ ] disambiguate_AddNamesFailure
+- [x] disambiguate_AddNamesFailure
   - Passes in #413 
-- [ ] disambiguate_AddNamesFailureWithAddGivenname
+- [x] disambiguate_AddNamesFailureWithAddGivenname
   - Passes in #413 
 - [ ] disambiguate_AllNamesBaseNameCountOnFailureIfYearSuffixAvailable
 - [ ] disambiguate_AllNamesGenerally
@@ -109,24 +109,24 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 - [x] disambiguate_AllNamesWithInitialsBibliography
   - Passes in #313
 - [ ] disambiguate_AllNamesWithInitialsGenerally
-- [ ] disambiguate_AndreaEg1a
+- [x] disambiguate_AndreaEg1a
   - Passes in #413 
 - [ ] disambiguate_AndreaEg1b
-- [ ] disambiguate_AndreaEg1c
+- [x] disambiguate_AndreaEg1c
   - Passes in #413 
 - [ ] disambiguate_AndreaEg2
 - [ ] disambiguate_AndreaEg3
 - [ ] disambiguate_AndreaEg4
 - [ ] disambiguate_AndreaEg5
-- [ ] disambiguate_ByCiteBaseNameCountOnFailureIfYearSuffixAvailable
+- [x] disambiguate_ByCiteBaseNameCountOnFailureIfYearSuffixAvailable
   - Passes in #413 
 - [ ] disambiguate_ByCiteGivennameExpandCrossNestedNames
-- [ ] disambiguate_ByCiteIncremental1
+- [x] disambiguate_ByCiteIncremental1
   - Passes in #413 
 - [ ] disambiguate_ByCiteIncremental2
-- [ ] disambiguate_ByCiteMinimalGivennameExpandMinimalNames
+- [x] disambiguate_ByCiteMinimalGivennameExpandMinimalNames
   - Passes in #413 
-- [ ] disambiguate_ByCiteRetainNamesOnFailureIfYearSuffixNotAvailable
+- [x] disambiguate_ByCiteRetainNamesOnFailureIfYearSuffixNotAvailable
   - Passes in #413 
 - [ ] disambiguate_CitationLabelDefault
 - [ ] disambiguate_CitationLabelInData
@@ -150,7 +150,7 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
   - Passes in #313 
 - [x] disambiguate_YearSuffixTwoPairsFullNamesBibliography
   - Passes in #313
-- [ ] disambiguate_YearSuffixWithMixedCreatorTypes
+- [x] disambiguate_YearSuffixWithMixedCreatorTypes
   - Passes in #413 
 
 ## Display
@@ -212,7 +212,7 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 - [ ] magic_StripPeriodsTrueShortForm
 - [ ] magic_SubsequentAuthorSubstitute
 - [ ] magic_SubsequentAuthorSubstituteNotFooled
-- [ ] magic_SubsequentAuthorSubstituteNotFooled
+- [x] magic_SubsequentAuthorSubstituteNotFooled
   - Passes in #228 
 - [ ] magic_SuperscriptChars
 - [ ] magic_SuppressLayoutDelimiterIfPrefixComma
@@ -222,7 +222,7 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 - [ ] name_ApostropheInGivenName
   - Passes in #99
-- [ ] name_ArticularWithComma
+- [x] name_ArticularWithComma
   - Passes in #420
 - [x] name_AuthorCount
   - Passes in #421
@@ -230,9 +230,9 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
   - Passes in #421
 - [x] name_AuthorEditorCount
   - Passes in #421
-- [ ] name_CeltsAndToffsCrowdedInitials
+- [x] name_CeltsAndToffsCrowdedInitials
   - Passes in #422 
-- [ ] name_CeltsAndToffsSpacedInitials
+- [x] name_CeltsAndToffsSpacedInitials
   - Passes in #422
 - [x] name_CiteGroupDelimiterWithYearSuffixCollapse
   - Passes in #423
@@ -266,12 +266,12 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 - [ ] name_ParticleCaps3
 - [ ] name_ParticleParse1
 - [ ] name_SplitInitials
-- [ ] name_SubsequentAuthorSubstituteMultipleNames
+- [x] name_SubsequentAuthorSubstituteMultipleNames
   - Passes in #228 
-- [ ] name_SubsequentAuthorSubstituteSingleField
+- [x] name_SubsequentAuthorSubstituteSingleField
   - Passes in #228 
-- [ ] name_SubstituteOnNamesSpanGroupSpanFail
-- [ ] name_SubstitutePartialEach
+- [x] name_SubstituteOnNamesSpanGroupSpanFail
+- [x] name_SubstitutePartialEach
   - Passes in #228 
 - [ ] name_TwoRolesSameRenderingSeparateRoleLabels
 - [ ] name_namepartAffixes
@@ -285,8 +285,10 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 ## Number
 
-- [ ] number_LeadingZeros
-- [ ] number_MixedText
+- [x] number_LeadingZeros
+  - Passes in #445 
+- [x] number_MixedText
+  - Passes in #445  
 - [ ] number_PlainHyphenOrEnDashAlwaysPlural
 
 ## Page
@@ -308,7 +310,7 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 ## Position
 
-- [ ] position_FalseInBibliography
+- [x] position_FalseInBibliography
   - Passes in #425 
 
 ## Punctuation
@@ -335,10 +337,10 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 - [x] sort_AguStyle
   - Passes in #313
-- [ ] sort_AguStyleReverseGroups
+- [x] sort_AguStyleReverseGroups
   - Passes in #426
 - [ ] sort_ChangeInNameSort
-- [ ] sort_ChicagoYearSuffix1
+- [x] sort_ChicagoYearSuffix1
   - Passes in #228 
 - [ ] sort_ChicagoYearSuffix2
 - [ ] sort_ConditionalMacroDates
