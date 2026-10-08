@@ -5,7 +5,7 @@ import { tracking } from "./tracking_issue.ts";
 import { useLocalStorage } from "./util.ts";
 
 // git log -1 --format='%h %ad' --date=iso-strict
-const MAIN_BRANCH_INFO = "a137441 2025-12-27T22:30:59Z";
+const MAIN_BRANCH_INFO = "546c7c7 2026-09-26T14:28:15-04:00";
 const storage = (key: string): string => `haya-view-test:${key}`;
 
 function App() {

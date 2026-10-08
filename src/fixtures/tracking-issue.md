@@ -1,5 +1,5 @@
 ---
-updatedAt: 2026-05-26T21:52:37Z
+updatedAt: 2026-08-29T16:10:39Z
 ---
 This issue tracks all the citeproc tests Hayagriva does support in principle (they have no unsupported features like date ranges) but which do not yet pass.
 
@@ -180,9 +180,10 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
 
 - [x] group_ComplexNesting
   - Passes in #400 
-- [ ] group_SuppressTermInMacro
+- [x] group_SuppressTermInMacro
   - Passes in #419 
 - [ ] group_SuppressTermWhenNoOutputFromPartialDate
+  - Passes in #503
 
 ## Label
 
@@ -361,9 +362,12 @@ This issue tracks all the citeproc tests Hayagriva does support in principle (th
   - Passes in #390
 - [ ] sort_SubstituteTitle
   - Passes in #99
-- [ ] sort_VariousNameMacros1
-- [ ] sort_VariousNameMacros2
-- [ ] sort_VariousNameMacros3
+- [x] sort_VariousNameMacros1
+  - Passes in #479
+- [x] sort_VariousNameMacros2
+  - Passes in #479
+- [x] sort_VariousNameMacros3
+  - Passes in #479
 
 ## Substitute
 
